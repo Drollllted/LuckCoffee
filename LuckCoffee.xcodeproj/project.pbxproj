@@ -19,6 +19,7 @@
 		DD78E1262BCB3A4F002234EC /* LoveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD78E1252BCB3A4F002234EC /* LoveView.swift */; };
 		DD78E1282BCB3AB3002234EC /* BuyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD78E1272BCB3AB3002234EC /* BuyViewController.swift */; };
 		DD78E12A2BCB3AE1002234EC /* BuyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD78E1292BCB3AE1002234EC /* BuyView.swift */; };
+		DD78E12D2BCFD313002234EC /* SlideMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD78E12C2BCFD313002234EC /* SlideMenuCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		DD78E1252BCB3A4F002234EC /* LoveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoveView.swift; sourceTree = "<group>"; };
 		DD78E1272BCB3AB3002234EC /* BuyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyViewController.swift; sourceTree = "<group>"; };
 		DD78E1292BCB3AE1002234EC /* BuyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyView.swift; sourceTree = "<group>"; };
+		DD78E12C2BCFD313002234EC /* SlideMenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideMenuCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +80,8 @@
 		DD145FCB2BCB0A210063D4C7 /* HomeVC */ = {
 			isa = PBXGroup;
 			children = (
+				DD78E12E2BD05C0F002234EC /* Data */,
+				DD78E12B2BCEDAA9002234EC /* CustomCell */,
 				DD145FBB2BCB08690063D4C7 /* HomeViewController.swift */,
 				DD78E1212BCB3998002234EC /* HomeView.swift */,
 			);
@@ -131,6 +135,21 @@
 				DD145FCB2BCB0A210063D4C7 /* HomeVC */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		DD78E12B2BCEDAA9002234EC /* CustomCell */ = {
+			isa = PBXGroup;
+			children = (
+				DD78E12C2BCFD313002234EC /* SlideMenuCell.swift */,
+			);
+			path = CustomCell;
+			sourceTree = "<group>";
+		};
+		DD78E12E2BD05C0F002234EC /* Data */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -211,6 +230,7 @@
 				DD145FB82BCB08680063D4C7 /* AppDelegate.swift in Sources */,
 				DD78E1222BCB3998002234EC /* HomeView.swift in Sources */,
 				DD145FBA2BCB08690063D4C7 /* SceneDelegate.swift in Sources */,
+				DD78E12D2BCFD313002234EC /* SlideMenuCell.swift in Sources */,
 				DD145FD42BCB0D890063D4C7 /* TabBar.swift in Sources */,
 				DD78E1242BCB3A46002234EC /* LoveViewController.swift in Sources */,
 			);

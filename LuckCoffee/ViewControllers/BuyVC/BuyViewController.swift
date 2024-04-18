@@ -12,6 +12,7 @@ class BuyViewController: UIViewController {
     private var buyView: BuyView!
     
     override func loadView() {
+        
         buyView = BuyView()
         view = buyView
     }
