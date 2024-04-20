@@ -13,9 +13,9 @@ class HomeView: UIView{
     private let scrollViewMain: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.isScrollEnabled = true
+        scrollView.alwaysBounceVertical = true
         scrollView.showsVerticalScrollIndicator = true
         scrollView.translatesAutoresizingMaskIntoConstraints = false
-        scrollView.backgroundColor = .systemPink
         return scrollView
     }()
     
@@ -26,8 +26,8 @@ class HomeView: UIView{
         return view
     }()
     
-    lazy var backgroundBlackView: UIView = {
-       let view = UIView()
+    lazy var backgroundBrownView: UIView = {
+        let view = UIView()
         view.backgroundColor = .brown
         view.translatesAutoresizingMaskIntoConstraints = false
         
@@ -231,53 +231,52 @@ class HomeView: UIView{
     }
     
     private func setBackgroundView() {
-        mainView.addSubview(backgroundBlackView)
+        mainView.addSubview(backgroundBrownView)
         
         NSLayoutConstraint.activate([
-            backgroundBlackView.topAnchor.constraint(equalTo: mainView.topAnchor),
-            backgroundBlackView.leadingAnchor.constraint(equalTo: mainView.leadingAnchor),
-            backgroundBlackView.trailingAnchor.constraint(equalTo: mainView.trailingAnchor),
-        
+            backgroundBrownView.topAnchor.constraint(equalTo: mainView.topAnchor),
+            backgroundBrownView.leadingAnchor.constraint(equalTo: mainView.leadingAnchor),
+            backgroundBrownView.trailingAnchor.constraint(equalTo: mainView.trailingAnchor),
         ])
     }
     
     private func setLocationLabel() {
-       backgroundBlackView.addSubview(locationText)
+        backgroundBrownView.addSubview(locationText)
         
         NSLayoutConstraint.activate([
-            locationText.leadingAnchor.constraint(equalTo: backgroundBlackView.leadingAnchor, constant: 25),
-            locationText.topAnchor.constraint(equalTo: backgroundBlackView.topAnchor, constant: 70)
+            locationText.leadingAnchor.constraint(equalTo: backgroundBrownView.leadingAnchor, constant: 25),
+            locationText.topAnchor.constraint(equalTo: backgroundBrownView.topAnchor, constant: 70)
         ])
     }
     
     private func setCityLabel() {
-        backgroundBlackView.addSubview(cityText)
+        backgroundBrownView.addSubview(cityText)
         
         NSLayoutConstraint.activate([
             cityText.topAnchor.constraint(equalTo: locationText.bottomAnchor, constant: 10),
-            cityText.leadingAnchor.constraint(equalTo: backgroundBlackView.leadingAnchor, constant: 25)
+            cityText.leadingAnchor.constraint(equalTo: backgroundBrownView.leadingAnchor, constant: 25)
         ])
     }
     
     private func setCoffeeImage() {
-        backgroundBlackView.addSubview(coffeeImage)
+        backgroundBrownView.addSubview(coffeeImage)
         
         NSLayoutConstraint.activate([
-            coffeeImage.topAnchor.constraint(equalTo: backgroundBlackView.topAnchor, constant: 70),
-            coffeeImage.trailingAnchor.constraint(equalTo: backgroundBlackView.trailingAnchor, constant: -25)
+            coffeeImage.topAnchor.constraint(equalTo: backgroundBrownView.topAnchor, constant: 70),
+            coffeeImage.trailingAnchor.constraint(equalTo: backgroundBrownView.trailingAnchor, constant: -25)
         ])
     }
     
     //MARK: Setup TextFieldButton
     
     private func setTextFieldButton() {
-        backgroundBlackView.addSubview(buttonTextField)
+        backgroundBrownView.addSubview(buttonTextField)
         buttonTextField.addTarget(self, action: #selector(didTap), for: .touchUpInside)
         
         NSLayoutConstraint.activate([
             buttonTextField.topAnchor.constraint(equalTo: cityText.bottomAnchor, constant: 50),
-            buttonTextField.leadingAnchor.constraint(equalTo: backgroundBlackView.leadingAnchor, constant: 25),
-            buttonTextField.trailingAnchor.constraint(equalTo: backgroundBlackView.trailingAnchor, constant: -25)
+            buttonTextField.leadingAnchor.constraint(equalTo: backgroundBrownView.leadingAnchor, constant: 25),
+            buttonTextField.trailingAnchor.constraint(equalTo: backgroundBrownView.trailingAnchor, constant: -25)
         ])
     }
     
@@ -287,7 +286,7 @@ class HomeView: UIView{
         NSLayoutConstraint.activate([
             magnifuImage.leadingAnchor.constraint(equalTo: buttonTextField.leadingAnchor, constant: 15),
             magnifuImage.topAnchor.constraint(equalTo: buttonTextField.topAnchor, constant: 14)
-        
+            
         ])
         
     }
@@ -315,12 +314,12 @@ class HomeView: UIView{
     //MARK: Setup SaleView
     
     private func setSaleView() {
-        backgroundBlackView.addSubview(rectangleSale)
+        backgroundBrownView.addSubview(rectangleSale)
         
         NSLayoutConstraint.activate([
             rectangleSale.topAnchor.constraint(equalTo: buttonTextField.bottomAnchor, constant: 50),
-            rectangleSale.leadingAnchor.constraint(equalTo: backgroundBlackView.leadingAnchor, constant: 25),
-            rectangleSale.trailingAnchor.constraint(equalTo: backgroundBlackView.trailingAnchor, constant: -25)
+            rectangleSale.leadingAnchor.constraint(equalTo: backgroundBrownView.leadingAnchor, constant: 25),
+            rectangleSale.trailingAnchor.constraint(equalTo: backgroundBrownView.trailingAnchor, constant: -25)
         ])
     }
     
@@ -332,7 +331,7 @@ class HomeView: UIView{
             horizontalSlideMenu.topAnchor.constraint(equalTo: rectangleSale.bottomAnchor, constant: 30),
             horizontalSlideMenu.leadingAnchor.constraint(equalTo: mainView.leadingAnchor, constant: 25),
             horizontalSlideMenu.trailingAnchor.constraint(equalTo: mainView.trailingAnchor)
-        
+            
         ])
         
         
