@@ -9,10 +9,16 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
+    //MARK: - Properties
+    
+    
     private var homeView: HomeView!
     
     private let categoriesCoffee: [String] = ["Cappuchino", "Latte", "Mocachino", "Americano", "Other"]
  
+    
+    //MARK: - LifeCycles
+    
     override func loadView() {
         homeView = HomeView()
         view = homeView
@@ -29,6 +35,8 @@ class HomeViewController: UIViewController {
 
 
 }
+
+//MARK: - Horizontal Slide Menu
 
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
