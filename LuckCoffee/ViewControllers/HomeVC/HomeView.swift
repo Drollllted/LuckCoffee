@@ -143,11 +143,16 @@ class HomeView: UIView{
         return collectionView
     }()
     
-    private let viewAddView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .black
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
+     var coffeeCollectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .vertical
+        
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.showsVerticalScrollIndicator = false
+        
+        return collectionView
     }()
     
     
@@ -335,6 +340,17 @@ class HomeView: UIView{
         ])
         
         
+    }
+    
+    private func setCoffeeCollectionView() {
+        mainView.addSubview(coffeeCollectionView)
+        
+        NSLayoutConstraint.activate([
+            coffeeCollectionView.topAnchor.constraint(equalTo: horizontalSlideMenu.bottomAnchor, constant: 50),
+            coffeeCollectionView.leadingAnchor.constraint(equalTo: mainView.leadingAnchor, constant: 25),
+            coffeeCollectionView.trailingAnchor.constraint(equalTo: mainView.trailingAnchor, constant: -25)
+        
+        ])
     }
     
 }

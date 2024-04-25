@@ -15,7 +15,6 @@ class SlideMenuCell: UICollectionViewCell {
         let label = UILabel()
         label.text = "Hi"
         label.textAlignment = .center
-
         label.translatesAutoresizingMaskIntoConstraints = false
         
         return label

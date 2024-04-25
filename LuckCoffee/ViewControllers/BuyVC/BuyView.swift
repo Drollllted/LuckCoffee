@@ -9,6 +9,11 @@ import UIKit
 
 class BuyView: UIView{
     
+    func createDeliveryLabels(deliveryLabel: UILabel, AddressLabel: UILabel) -> UIStackView {
+        
+        return UIStackView()
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
     }

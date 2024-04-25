@@ -19,6 +19,7 @@ class LoveViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .gray
+        self.navigationItem.title = "Love"
     }
     
     

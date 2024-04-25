@@ -11,7 +11,6 @@ class HomeViewController: UIViewController {
     
     //MARK: - Properties
     
-    
     private var homeView: HomeView!
     
     private let categoriesCoffee: [String] = ["Cappuchino", "Latte", "Mocachino", "Americano", "Other"]
@@ -40,7 +39,7 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return categoriesCoffee.count
+            return categoriesCoffee.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

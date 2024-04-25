@@ -11,19 +11,8 @@ class TabBar: UIView {
     
     static let shared = TabBar()
     
-    lazy var rectangleTabBar: UIView = {
-        let rectangle = UIView()
-        rectangle.backgroundColor = .white
-        rectangle.layer.cornerRadius = 15
-        rectangle.translatesAutoresizingMaskIntoConstraints = false
-        rectangle.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        return rectangle
-    }()
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
-        setRectangle()
         
     }
     
@@ -36,14 +25,14 @@ class TabBar: UIView {
         
         return viewController
     }
+
     
-    private func setRectangle() {
-        addSubview(rectangleTabBar)
-        
-        NSLayoutConstraint.activate([
-            rectangleTabBar.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            rectangleTabBar.trailingAnchor.constraint(equalTo: self.trailingAnchor)
-        ])
+}
+extension TabBar {
+    open override func sizeThatFits(_ size: CGSize) -> CGSize {
+        super.sizeThatFits(size)
+        var sizeThatFits = super.sizeThatFits(size)
+        sizeThatFits.height = 100
+        return sizeThatFits
     }
-    
 }
