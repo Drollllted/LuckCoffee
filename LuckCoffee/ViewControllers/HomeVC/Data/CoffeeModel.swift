@@ -9,7 +9,7 @@ import UIKit
 
 struct CoffeeModel{
     let nameCoffee: String
-    let imageCoffee: String?
+    let imageCoffee: String
     let coffeeIngredients: String
     let coffeePrice: String
     let ratingCoffee: String
