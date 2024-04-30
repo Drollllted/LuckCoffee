@@ -43,8 +43,8 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier:  CoffeeCell.identifire, for: indexPath) as? CoffeeCell else {fatalError("What's wrong?")}
-        let items = data[indexPath.item]
-        cell.imageCoffeeCell.image = UIImage(named: coffeeModel.imageCoffee?[indexPath.item])
+        let coffeeModel = data[indexPath.row]
+        cell.coffeeModel = coffeeModel
         return cell
     }
     
