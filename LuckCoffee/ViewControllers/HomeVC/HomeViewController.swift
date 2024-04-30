@@ -12,7 +12,6 @@ class HomeViewController: UIViewController {
     //MARK: - Properties
     
     private var homeView: HomeView!
-    var coffeeModel: CoffeeModel!
     
     //MARK: - LifeCycles
     
@@ -43,8 +42,9 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier:  CoffeeCell.identifire, for: indexPath) as? CoffeeCell else {fatalError("What's wrong?")}
-        let items = data[indexPath.item]
-        cell.imageCoffeeCell.image = UIImage(named: coffeeModel.imageCoffee?[indexPath.item])
+        let coffeeModel = data[indexPath.row]
+        cell.coffeeModel = coffeeModel
+        cell.setupImage()
         return cell
     }
     
@@ -52,6 +52,6 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
 }
 extension HomeViewController: UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 135, height: 430)
+        return CGSize(width: 135, height: 200)
     }
 }

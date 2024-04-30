@@ -224,6 +224,8 @@ class HomeView: UIView{
         
         createHorizontalMenu()
         
+        setCoffeeCollectionView()
+        
     }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -395,8 +397,8 @@ class HomeView: UIView{
         NSLayoutConstraint.activate([
             coffeeCollectionView.topAnchor.constraint(equalTo: scrollHorizontalMenu.bottomAnchor, constant: 50),
             coffeeCollectionView.leadingAnchor.constraint(equalTo: mainView.leadingAnchor, constant: 25),
-            coffeeCollectionView.trailingAnchor.constraint(equalTo: mainView.trailingAnchor, constant: -25)
-        
+            coffeeCollectionView.trailingAnchor.constraint(equalTo: mainView.trailingAnchor, constant: -25),
+            coffeeCollectionView.bottomAnchor.constraint(equalTo: mainView.bottomAnchor, constant: -20)
         ])
     }
     

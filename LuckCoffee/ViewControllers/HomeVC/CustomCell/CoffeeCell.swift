@@ -19,7 +19,6 @@ class CoffeeCell: UICollectionViewCell{
         image.contentMode = .scaleAspectFit
         image.layer.masksToBounds = true
         image.layer.cornerRadius = 5
-        
         image.translatesAutoresizingMaskIntoConstraints = false
         
         return image
@@ -29,12 +28,14 @@ class CoffeeCell: UICollectionViewCell{
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        imageCoffeeCell.image = UIImage(named: coffeeModel.imageCoffee ?? "CoffeeImage")
-        
         backgroundColor = .systemGray6
         layer.cornerRadius = 10
         
         setImageCoffee()
+    }
+    
+    override func prepareForReuse() {
+        imageCoffeeCell.image = nil
     }
     
     required init?(coder: NSCoder) {
@@ -52,5 +53,9 @@ class CoffeeCell: UICollectionViewCell{
             imageCoffeeCell.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -25)
         
         ])
+    }
+    
+    func setupImage() {
+        imageCoffeeCell.image = UIImage(named: coffeeModel.imageCoffee )
     }
 }
