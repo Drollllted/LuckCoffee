@@ -16,12 +16,12 @@
 		DD145FD42BCB0D890063D4C7 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD145FD32BCB0D890063D4C7 /* TabBar.swift */; };
 		DD59687A2BD566BE001F9011 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5968792BD566BE001F9011 /* Data.swift */; };
 		DD59687C2BD56802001F9011 /* CoffeeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD59687B2BD56801001F9011 /* CoffeeModel.swift */; };
+		DD59687E2BE00CBA001F9011 /* CoffeeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD59687D2BE00CBA001F9011 /* CoffeeCell.swift */; };
 		DD78E1222BCB3998002234EC /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD78E1212BCB3998002234EC /* HomeView.swift */; };
 		DD78E1242BCB3A46002234EC /* LoveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD78E1232BCB3A46002234EC /* LoveViewController.swift */; };
 		DD78E1262BCB3A4F002234EC /* LoveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD78E1252BCB3A4F002234EC /* LoveView.swift */; };
 		DD78E1282BCB3AB3002234EC /* BuyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD78E1272BCB3AB3002234EC /* BuyViewController.swift */; };
 		DD78E12A2BCB3AE1002234EC /* BuyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD78E1292BCB3AE1002234EC /* BuyView.swift */; };
-		DD78E12D2BCFD313002234EC /* SlideMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD78E12C2BCFD313002234EC /* SlideMenuCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,12 +36,12 @@
 		DD145FD32BCB0D890063D4C7 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		DD5968792BD566BE001F9011 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		DD59687B2BD56801001F9011 /* CoffeeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeModel.swift; sourceTree = "<group>"; };
+		DD59687D2BE00CBA001F9011 /* CoffeeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeCell.swift; sourceTree = "<group>"; };
 		DD78E1212BCB3998002234EC /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		DD78E1232BCB3A46002234EC /* LoveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoveViewController.swift; sourceTree = "<group>"; };
 		DD78E1252BCB3A4F002234EC /* LoveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoveView.swift; sourceTree = "<group>"; };
 		DD78E1272BCB3AB3002234EC /* BuyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyViewController.swift; sourceTree = "<group>"; };
 		DD78E1292BCB3AE1002234EC /* BuyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyView.swift; sourceTree = "<group>"; };
-		DD78E12C2BCFD313002234EC /* SlideMenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideMenuCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,7 +144,7 @@
 		DD78E12B2BCEDAA9002234EC /* CustomCell */ = {
 			isa = PBXGroup;
 			children = (
-				DD78E12C2BCFD313002234EC /* SlideMenuCell.swift */,
+				DD59687D2BE00CBA001F9011 /* CoffeeCell.swift */,
 			);
 			path = CustomCell;
 			sourceTree = "<group>";
@@ -232,13 +232,13 @@
 				DD145FBC2BCB08690063D4C7 /* HomeViewController.swift in Sources */,
 				DD145FD02BCB0A8B0063D4C7 /* TabBarController.swift in Sources */,
 				DD78E1282BCB3AB3002234EC /* BuyViewController.swift in Sources */,
+				DD59687E2BE00CBA001F9011 /* CoffeeCell.swift in Sources */,
 				DD78E1262BCB3A4F002234EC /* LoveView.swift in Sources */,
 				DD59687C2BD56802001F9011 /* CoffeeModel.swift in Sources */,
 				DD145FB82BCB08680063D4C7 /* AppDelegate.swift in Sources */,
 				DD78E1222BCB3998002234EC /* HomeView.swift in Sources */,
 				DD59687A2BD566BE001F9011 /* Data.swift in Sources */,
 				DD145FBA2BCB08690063D4C7 /* SceneDelegate.swift in Sources */,
-				DD78E12D2BCFD313002234EC /* SlideMenuCell.swift in Sources */,
 				DD145FD42BCB0D890063D4C7 /* TabBar.swift in Sources */,
 				DD78E1242BCB3A46002234EC /* LoveViewController.swift in Sources */,
 			);

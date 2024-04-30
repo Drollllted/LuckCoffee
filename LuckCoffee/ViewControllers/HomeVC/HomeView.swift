@@ -8,7 +8,11 @@
 import UIKit
 
 class HomeView: UIView{
-    //MARK: Create UIModels
+    
+    private let categoriesCoffee: [String] = ["Cappuchino", "Latte", "Mocachino", "Americano", "Other"]
+    
+    
+    //MARK: - Create UIModels
     
     private let scrollViewMain: UIScrollView = {
         let scrollView = UIScrollView()
@@ -35,7 +39,7 @@ class HomeView: UIView{
         return view
     }()
     
-    //MARK: LocationViews
+    //MARK: - LocationViews
     
     lazy var locationText: UILabel = {
         let label = UILabel()
@@ -71,7 +75,7 @@ class HomeView: UIView{
         return imageView
     }()
     
-    //MARK: CreateTextField Button
+    //MARK: - CreateTextField Button
     
     
     lazy var buttonTextField: UIButton = {
@@ -117,7 +121,7 @@ class HomeView: UIView{
         return button
     }()
     
-    //MARK: SaleView
+    //MARK: - SaleView
     
     lazy var rectangleSale: UIView = {
         let view = UIView()
@@ -129,26 +133,70 @@ class HomeView: UIView{
         return view
     }()
     
-    var horizontalSlideMenu: UICollectionView = {
-        let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .horizontal
+    //MARK: - Create ScrollHorizontalMenu
+    lazy var scrollHorizontalMenu: UIScrollView = {
+        let scroll = UIScrollView()
+        scroll.isScrollEnabled = true
+        scroll.showsHorizontalScrollIndicator = false
+        scroll.translatesAutoresizingMaskIntoConstraints = false
+        scroll.heightAnchor.constraint(equalToConstant: 50).isActive = true
         
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.register(SlideMenuCell.self, forCellWithReuseIdentifier: SlideMenuCell.identifire)
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.showsHorizontalScrollIndicator = false
-        
-        collectionView.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        
-        return collectionView
+        return scroll
     }()
     
+    func createHorizontalMenu() {
+        lazy var stackHorizontalMenu: UIStackView = {
+            let stack = UIStackView()
+            stack.axis = .horizontal
+            stack.spacing = 8
+            stack.translatesAutoresizingMaskIntoConstraints = false
+            
+            return stack
+        }()
+        
+        scrollHorizontalMenu.addSubview(stackHorizontalMenu)
+        NSLayoutConstraint.activate([
+            stackHorizontalMenu.topAnchor.constraint(equalTo: scrollHorizontalMenu.topAnchor),
+            stackHorizontalMenu.leadingAnchor.constraint(equalTo: scrollHorizontalMenu.leadingAnchor),
+            stackHorizontalMenu.trailingAnchor.constraint(equalTo: scrollHorizontalMenu.trailingAnchor),
+            stackHorizontalMenu.bottomAnchor.constraint(equalTo: scrollHorizontalMenu.bottomAnchor)
+        
+        ])
+        
+        for titles in categoriesCoffee{
+            let button = UIButton()
+            button.setTitle(titles, for: .normal)
+            button.setTitleColor(.black, for: .normal)
+            
+            button.addTarget(self, action: #selector(didTapInStack), for: .touchUpInside)
+            
+            button.layer.cornerRadius = 20
+            button.backgroundColor = .systemGray6
+            button.translatesAutoresizingMaskIntoConstraints = false
+            
+            let fontName = UIFont(name: "Arial Bold", size: 18)
+            let categoriesAttributes = [NSAttributedString.Key.font: fontName as Any]
+            let widthCategories = titles.size(withAttributes: categoriesAttributes).width + 30
+            
+            button.heightAnchor.constraint(equalToConstant: 50).isActive = true
+            button.widthAnchor.constraint(equalToConstant: widthCategories).isActive = true
+            stackHorizontalMenu.addArrangedSubview(button)
+        }
+        
+        
+    }
+    
+    @objc func didTapInStack() {
+        
+    }
+
+    //MARK: - CoffeeMenu
      var coffeeCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
         
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+        collectionView.register(CoffeeCell.self, forCellWithReuseIdentifier: CoffeeCell.identifire)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.showsVerticalScrollIndicator = false
         
@@ -157,7 +205,7 @@ class HomeView: UIView{
     
     
     
-    //MARK: LifeCycles
+    //MARK: - LifeCycles
     override init(frame: CGRect) {
         super.init(frame: frame)
         setScrollView()
@@ -172,8 +220,9 @@ class HomeView: UIView{
         
         saleView()
         
-        setHorizontalSlideMenu()
+        setScrollHorizontalSlideMenu()
         
+        createHorizontalMenu()
         
     }
     required init?(coder: NSCoder) {
@@ -184,7 +233,7 @@ class HomeView: UIView{
         print("111")
     }
     
-    //MARK: FunctionForSetup
+    //MARK: - FunctionForSetup
     
     private func locationWithImage() {
         setLocationLabel()
@@ -208,7 +257,7 @@ class HomeView: UIView{
         setSaleView()
     }
     
-    //MARK: SetupUI
+    //MARK: - SetupUI
     
     private func setScrollView() {
         addSubview(scrollViewMain)
@@ -272,7 +321,7 @@ class HomeView: UIView{
         ])
     }
     
-    //MARK: Setup TextFieldButton
+    //MARK: - Setup TextFieldButton
     
     private func setTextFieldButton() {
         backgroundBrownView.addSubview(buttonTextField)
@@ -316,7 +365,7 @@ class HomeView: UIView{
     }
     
     
-    //MARK: Setup SaleView
+    //MARK: - Setup SaleView
     
     private func setSaleView() {
         backgroundBrownView.addSubview(rectangleSale)
@@ -328,25 +377,23 @@ class HomeView: UIView{
         ])
     }
     
+    //MARK: - ScrollHorizontalMenu and CoffeeCell
     
-    private func setHorizontalSlideMenu() {
-        mainView.addSubview(horizontalSlideMenu)
+    private func setScrollHorizontalSlideMenu() {
+        mainView.addSubview(scrollHorizontalMenu)
         
         NSLayoutConstraint.activate([
-            horizontalSlideMenu.topAnchor.constraint(equalTo: rectangleSale.bottomAnchor, constant: 30),
-            horizontalSlideMenu.leadingAnchor.constraint(equalTo: mainView.leadingAnchor, constant: 25),
-            horizontalSlideMenu.trailingAnchor.constraint(equalTo: mainView.trailingAnchor)
-            
+            scrollHorizontalMenu.topAnchor.constraint(equalTo: rectangleSale.bottomAnchor, constant: 30),
+            scrollHorizontalMenu.leadingAnchor.constraint(equalTo: mainView.leadingAnchor, constant: 25),
+            scrollHorizontalMenu.trailingAnchor.constraint(equalTo: mainView.trailingAnchor)
         ])
-        
-        
     }
     
     private func setCoffeeCollectionView() {
         mainView.addSubview(coffeeCollectionView)
         
         NSLayoutConstraint.activate([
-            coffeeCollectionView.topAnchor.constraint(equalTo: horizontalSlideMenu.bottomAnchor, constant: 50),
+            coffeeCollectionView.topAnchor.constraint(equalTo: scrollHorizontalMenu.bottomAnchor, constant: 50),
             coffeeCollectionView.leadingAnchor.constraint(equalTo: mainView.leadingAnchor, constant: 25),
             coffeeCollectionView.trailingAnchor.constraint(equalTo: mainView.trailingAnchor, constant: -25)
         

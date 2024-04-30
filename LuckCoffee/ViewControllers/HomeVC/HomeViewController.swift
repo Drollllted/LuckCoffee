@@ -12,9 +12,7 @@ class HomeViewController: UIViewController {
     //MARK: - Properties
     
     private var homeView: HomeView!
-    
-    private let categoriesCoffee: [String] = ["Cappuchino", "Latte", "Mocachino", "Americano", "Other"]
- 
+    var coffeeModel: CoffeeModel!
     
     //MARK: - LifeCycles
     
@@ -27,46 +25,33 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         
-        homeView.horizontalSlideMenu.delegate = self
-        homeView.horizontalSlideMenu.dataSource = self
+        homeView.coffeeCollectionView.delegate = self
+        homeView.coffeeCollectionView.dataSource = self
         
     }
 
 
 }
 
-//MARK: - Horizontal Slide Menu
 
-extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+//MARK: - Horizontal Slide Menu
+    
+extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-            return categoriesCoffee.count
+        return data.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SlideMenuCell.identifire, for: indexPath) as? SlideMenuCell else {fatalError("Hi=hi")}
-        cell.categotyLabel.text = categoriesCoffee[indexPath.item]
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier:  CoffeeCell.identifire, for: indexPath) as? CoffeeCell else {fatalError("What's wrong?")}
+        let items = data[indexPath.item]
+        cell.imageCoffeeCell.image = UIImage(named: coffeeModel.imageCoffee?[indexPath.item])
         return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
     }
     
     
 }
-
 extension HomeViewController: UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        let fontName = UIFont(name: "Arial Bold", size: 18)
-        let categoriesAttributes = [NSAttributedString.Key.font: fontName as Any]
-        let widthCategories = categoriesCoffee[indexPath.item].size(withAttributes: categoriesAttributes).width + 30
-        
-        
-        return CGSize(width: widthCategories, height: homeView.horizontalSlideMenu.frame.height)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 8
+        return CGSize(width: 135, height: 430)
     }
 }
