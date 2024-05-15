@@ -224,6 +224,8 @@ class HomeView: UIView{
         
         createHorizontalMenu()
         
+        setCoffeeCollectionView()
+        
     }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -280,7 +282,7 @@ class HomeView: UIView{
             mainView.bottomAnchor.constraint(equalTo: scrollViewMain.bottomAnchor),
             
             mainView.widthAnchor.constraint(equalTo: scrollViewMain.widthAnchor),
-            mainView.heightAnchor.constraint(equalTo: scrollViewMain.heightAnchor)
+            mainView.heightAnchor.constraint(equalToConstant: 3000)
         ])
     }
     
@@ -288,7 +290,7 @@ class HomeView: UIView{
         mainView.addSubview(backgroundBrownView)
         
         NSLayoutConstraint.activate([
-            backgroundBrownView.topAnchor.constraint(equalTo: mainView.topAnchor),
+            backgroundBrownView.topAnchor.constraint(equalTo: mainView.topAnchor,constant: -70),
             backgroundBrownView.leadingAnchor.constraint(equalTo: mainView.leadingAnchor),
             backgroundBrownView.trailingAnchor.constraint(equalTo: mainView.trailingAnchor),
         ])
@@ -394,8 +396,9 @@ class HomeView: UIView{
         
         NSLayoutConstraint.activate([
             coffeeCollectionView.topAnchor.constraint(equalTo: scrollHorizontalMenu.bottomAnchor, constant: 50),
-            coffeeCollectionView.leadingAnchor.constraint(equalTo: mainView.leadingAnchor, constant: 25),
-            coffeeCollectionView.trailingAnchor.constraint(equalTo: mainView.trailingAnchor, constant: -25)
+            coffeeCollectionView.leadingAnchor.constraint(equalTo: mainView.leadingAnchor, constant: 20),
+            coffeeCollectionView.trailingAnchor.constraint(equalTo: mainView.trailingAnchor, constant: -20),
+            coffeeCollectionView.bottomAnchor.constraint(equalTo: mainView.bottomAnchor)
         
         ])
     }

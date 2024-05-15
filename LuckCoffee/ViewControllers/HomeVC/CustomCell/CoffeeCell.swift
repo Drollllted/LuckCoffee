@@ -16,7 +16,7 @@ class CoffeeCell: UICollectionViewCell{
     
     lazy var imageCoffeeCell: UIImageView = {
         let image = UIImageView()
-        image.contentMode = .scaleAspectFit
+        image.contentMode = .scaleAspectFill
         image.layer.masksToBounds = true
         image.layer.cornerRadius = 5
         
@@ -25,16 +25,66 @@ class CoffeeCell: UICollectionViewCell{
         return image
     }()
     
+    lazy var nameCoffeeLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 20, weight: .bold)
+        label.textColor = .black
+        
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    lazy var ingredientsCoffeeLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
+        label.textColor = .gray
+        
+        label.translatesAutoresizingMaskIntoConstraints = false
+        
+        return label
+    }()
+    
+    lazy var priceCoffeeLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 20, weight: .bold)
+        label.textColor = .black
+        
+        label.translatesAutoresizingMaskIntoConstraints = false
+        
+        return label
+    }()
+    
+    lazy var plusButton: UIButton = {
+        let button = UIButton()
+        button.setImage(UIImage(systemName: "plus"), for: .normal)
+        button.tintColor = .white
+        button.clipsToBounds = true
+        button.backgroundColor = .brown
+        button.layer.cornerRadius = 10
+        
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.heightAnchor.constraint(equalToConstant: 32).isActive = true
+        button.widthAnchor.constraint(equalToConstant: 32).isActive = true
+        
+        return button
+    }()
+    
     //MARK: - LifeCycles
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
-        imageCoffeeCell.image = UIImage(named: coffeeModel.imageCoffee ?? "CoffeeImage")
         
         backgroundColor = .systemGray6
         layer.cornerRadius = 10
         
         setImageCoffee()
+        
+        setNameCoffee()
+        
+        setIngredientsCoffee()
+        
+        setPriceCoffee()
+        
+        setPlusButton()
     }
     
     required init?(coder: NSCoder) {
@@ -47,10 +97,48 @@ class CoffeeCell: UICollectionViewCell{
         addSubview(imageCoffeeCell)
         
         NSLayoutConstraint.activate([
-            imageCoffeeCell.topAnchor.constraint(equalTo: self.topAnchor, constant: 20),
-            imageCoffeeCell.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 25),
-            imageCoffeeCell.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -25)
+            imageCoffeeCell.topAnchor.constraint(equalTo: self.topAnchor, constant: 10),
+            imageCoffeeCell.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15),
+            imageCoffeeCell.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -15),
+            imageCoffeeCell.heightAnchor.constraint(equalToConstant: 100)
+        ])
+    }
+    
+    private func setNameCoffee() {
+        addSubview(nameCoffeeLabel)
         
+        NSLayoutConstraint.activate([
+            nameCoffeeLabel.topAnchor.constraint(equalTo: imageCoffeeCell.bottomAnchor, constant: 10),
+            nameCoffeeLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15),
+            nameCoffeeLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor)
+        ])
+    }
+    
+    private func setIngredientsCoffee() {
+        addSubview(ingredientsCoffeeLabel)
+        
+        NSLayoutConstraint.activate([
+            ingredientsCoffeeLabel.topAnchor.constraint(equalTo: nameCoffeeLabel.bottomAnchor, constant: 5),
+            ingredientsCoffeeLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15),
+            ingredientsCoffeeLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor)
+        ])
+    }
+    
+    private func setPriceCoffee() {
+        addSubview(priceCoffeeLabel)
+        
+        NSLayoutConstraint.activate([
+            priceCoffeeLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -15),
+            priceCoffeeLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15),
+        ])
+    }
+    
+    private func setPlusButton() {
+        addSubview(plusButton)
+        
+        NSLayoutConstraint.activate([
+            plusButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10),
+            plusButton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -10)
         ])
     }
 }
