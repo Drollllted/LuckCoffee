@@ -24,8 +24,7 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
-        
-        self.navigationController?.navigationBar.isHidden = true
+        self.navigationController?.navigationBar.tintColor = .clear
         
         homeView.coffeeCollectionView.delegate = self
         homeView.coffeeCollectionView.dataSource = self
@@ -60,24 +59,24 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
         vc.coffeeInfo.namedCoffeeInfo.text = coffeeModel.nameCoffee
         vc.coffeeInfo.ingredientsCoffee.text = coffeeModel.coffeeIngredients
         vc.coffeeInfo.ratingButton.titleLabel?.text = String(coffeeModel.ratingCoffee)
-        
+        vc.coffeeInfo.discriptionLabel.text = coffeeModel.coffeeDiscriprions
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
 }
 extension HomeViewController: UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 165, height: 250)
+        return CGSize(width: 170, height: 240)
     }
     //Vertical
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 18
+        return 7
     }
     
     //Horizontal
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 2
+        return 7
     }
 }

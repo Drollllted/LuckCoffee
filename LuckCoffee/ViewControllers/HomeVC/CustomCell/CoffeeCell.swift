@@ -27,7 +27,7 @@ class CoffeeCell: UICollectionViewCell{
     
     lazy var nameCoffeeLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 20, weight: .bold)
+        label.font = .customFont(type: .SoraSemiBold, size: 18)
         label.textColor = .black
         
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -36,7 +36,7 @@ class CoffeeCell: UICollectionViewCell{
     
     lazy var ingredientsCoffeeLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
+        label.font = .customFont(type: .SoraRegular, size: 12)
         label.textColor = .gray
         
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -46,7 +46,7 @@ class CoffeeCell: UICollectionViewCell{
     
     lazy var priceCoffeeLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 20, weight: .bold)
+        label.font = .customFont(type: .SoraSemiBold, size: 18)
         label.textColor = .black
         
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -74,7 +74,7 @@ class CoffeeCell: UICollectionViewCell{
         super.init(frame: frame)
         
         backgroundColor = .systemGray6
-        layer.cornerRadius = 10
+        layer.cornerRadius = 20
         
         setImageCoffee()
         
@@ -100,7 +100,7 @@ class CoffeeCell: UICollectionViewCell{
             imageCoffeeCell.topAnchor.constraint(equalTo: self.topAnchor, constant: 10),
             imageCoffeeCell.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15),
             imageCoffeeCell.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -15),
-            imageCoffeeCell.heightAnchor.constraint(equalToConstant: 100)
+            imageCoffeeCell.heightAnchor.constraint(equalToConstant: 130)
         ])
     }
     

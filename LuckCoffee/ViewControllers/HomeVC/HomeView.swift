@@ -18,7 +18,7 @@ class HomeView: UIView{
         let scrollView = UIScrollView()
         scrollView.isScrollEnabled = true
         scrollView.alwaysBounceVertical = true
-        scrollView.showsVerticalScrollIndicator = true
+        scrollView.showsVerticalScrollIndicator = false
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         return scrollView
     }()
@@ -44,7 +44,7 @@ class HomeView: UIView{
     lazy var locationText: UILabel = {
         let label = UILabel()
         label.text = "Location"
-        label.font = UIFont(name: "", size: 13)
+        label.font = .customFont(type: .SoraRegular, size: 14)
         label.textColor = .gray
         label.textAlignment = .left
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -54,7 +54,7 @@ class HomeView: UIView{
     lazy var cityText: UILabel = {
         let label = UILabel()
         label.text = "Kolpino, Saint-P"
-        label.font = UIFont(name: "", size: 16)
+        label.font = .customFont(type: .SoraSemiBold, size: 16)
         label.textAlignment = .left
         label.textColor = .black
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -101,7 +101,7 @@ class HomeView: UIView{
     
     lazy var placeholderTextInButton: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 16, weight: .regular)
+        label.font = .customFont(type: .SoraRegular, size: 14)
         label.textColor = .gray
         label.text = "Search Coffee"
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -123,8 +123,12 @@ class HomeView: UIView{
     
     //MARK: - SaleView
     
-    lazy var rectangleSale: UIView = {
-        let view = UIView()
+    lazy var rectangleSale: UIImageView = {
+        let view = UIImageView()
+        view.image = .promo
+        view.contentMode = .scaleAspectFill
+        view.clipsToBounds = true
+        
         view.backgroundColor = .darkGray
         view.layer.cornerRadius = 15
         
@@ -174,7 +178,7 @@ class HomeView: UIView{
             button.backgroundColor = .systemGray6
             button.translatesAutoresizingMaskIntoConstraints = false
             
-            let fontName = UIFont(name: "Arial Bold", size: 18)
+            let fontName = UIFont.customFont(type: .SoraSemiBold, size: 16)
             let categoriesAttributes = [NSAttributedString.Key.font: fontName as Any]
             let widthCategories = titles.size(withAttributes: categoriesAttributes).width + 30
             
@@ -290,7 +294,7 @@ class HomeView: UIView{
         mainView.addSubview(backgroundBrownView)
         
         NSLayoutConstraint.activate([
-            backgroundBrownView.topAnchor.constraint(equalTo: mainView.topAnchor,constant: -70),
+            backgroundBrownView.topAnchor.constraint(equalTo: mainView.topAnchor,constant: -100),
             backgroundBrownView.leadingAnchor.constraint(equalTo: mainView.leadingAnchor),
             backgroundBrownView.trailingAnchor.constraint(equalTo: mainView.trailingAnchor),
         ])

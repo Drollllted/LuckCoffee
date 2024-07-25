@@ -24,6 +24,15 @@
 		DD78E1282BCB3AB3002234EC /* BuyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD78E1272BCB3AB3002234EC /* BuyViewController.swift */; };
 		DD78E12A2BCB3AE1002234EC /* BuyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD78E1292BCB3AE1002234EC /* BuyView.swift */; };
 		DD9D07D92BF29C2700932D2C /* CoffeeInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9D07D82BF29C2700932D2C /* CoffeeInfoVC.swift */; };
+		DDF558F92C52F6870002294F /* Sora-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DDF558F02C52F6870002294F /* Sora-Bold.ttf */; };
+		DDF558FA2C52F6870002294F /* Sora-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DDF558F12C52F6870002294F /* Sora-ExtraBold.ttf */; };
+		DDF558FB2C52F6870002294F /* Sora-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DDF558F22C52F6870002294F /* Sora-ExtraLight.ttf */; };
+		DDF558FC2C52F6870002294F /* Sora-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DDF558F32C52F6870002294F /* Sora-Light.ttf */; };
+		DDF558FD2C52F6870002294F /* Sora-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DDF558F42C52F6870002294F /* Sora-Medium.ttf */; };
+		DDF558FE2C52F6870002294F /* Sora-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DDF558F52C52F6870002294F /* Sora-Regular.ttf */; };
+		DDF558FF2C52F6870002294F /* Sora-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DDF558F62C52F6870002294F /* Sora-SemiBold.ttf */; };
+		DDF559002C52F6870002294F /* Sora-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DDF558F72C52F6870002294F /* Sora-Thin.ttf */; };
+		DDF559022C52F6950002294F /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF559012C52F6950002294F /* Fonts.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +55,15 @@
 		DD78E1272BCB3AB3002234EC /* BuyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyViewController.swift; sourceTree = "<group>"; };
 		DD78E1292BCB3AE1002234EC /* BuyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyView.swift; sourceTree = "<group>"; };
 		DD9D07D82BF29C2700932D2C /* CoffeeInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeInfoVC.swift; sourceTree = "<group>"; };
+		DDF558F02C52F6870002294F /* Sora-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sora-Bold.ttf"; sourceTree = "<group>"; };
+		DDF558F12C52F6870002294F /* Sora-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sora-ExtraBold.ttf"; sourceTree = "<group>"; };
+		DDF558F22C52F6870002294F /* Sora-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sora-ExtraLight.ttf"; sourceTree = "<group>"; };
+		DDF558F32C52F6870002294F /* Sora-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sora-Light.ttf"; sourceTree = "<group>"; };
+		DDF558F42C52F6870002294F /* Sora-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sora-Medium.ttf"; sourceTree = "<group>"; };
+		DDF558F52C52F6870002294F /* Sora-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sora-Regular.ttf"; sourceTree = "<group>"; };
+		DDF558F62C52F6870002294F /* Sora-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sora-SemiBold.ttf"; sourceTree = "<group>"; };
+		DDF558F72C52F6870002294F /* Sora-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sora-Thin.ttf"; sourceTree = "<group>"; };
+		DDF559012C52F6950002294F /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +137,7 @@
 		DD145FCE2BCB0A5F0063D4C7 /* Support */ = {
 			isa = PBXGroup;
 			children = (
+				DDF558EF2C52F6680002294F /* Fonts */,
 				DD145FB72BCB08680063D4C7 /* AppDelegate.swift */,
 				DD145FB92BCB08690063D4C7 /* SceneDelegate.swift */,
 				DD145FC02BCB086D0063D4C7 /* Assets.xcassets */,
@@ -162,6 +181,30 @@
 				DD59687B2BD56801001F9011 /* CoffeeModel.swift */,
 			);
 			path = Data;
+			sourceTree = "<group>";
+		};
+		DDF558EF2C52F6680002294F /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				DDF558F82C52F6870002294F /* static */,
+				DDF559012C52F6950002294F /* Fonts.swift */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		DDF558F82C52F6870002294F /* static */ = {
+			isa = PBXGroup;
+			children = (
+				DDF558F02C52F6870002294F /* Sora-Bold.ttf */,
+				DDF558F12C52F6870002294F /* Sora-ExtraBold.ttf */,
+				DDF558F22C52F6870002294F /* Sora-ExtraLight.ttf */,
+				DDF558F32C52F6870002294F /* Sora-Light.ttf */,
+				DDF558F42C52F6870002294F /* Sora-Medium.ttf */,
+				DDF558F52C52F6870002294F /* Sora-Regular.ttf */,
+				DDF558F62C52F6870002294F /* Sora-SemiBold.ttf */,
+				DDF558F72C52F6870002294F /* Sora-Thin.ttf */,
+			);
+			path = static;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -222,7 +265,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDF558FE2C52F6870002294F /* Sora-Regular.ttf in Resources */,
+				DDF558FF2C52F6870002294F /* Sora-SemiBold.ttf in Resources */,
 				DD145FC12BCB086D0063D4C7 /* Assets.xcassets in Resources */,
+				DDF558FA2C52F6870002294F /* Sora-ExtraBold.ttf in Resources */,
+				DDF559002C52F6870002294F /* Sora-Thin.ttf in Resources */,
+				DDF558FC2C52F6870002294F /* Sora-Light.ttf in Resources */,
+				DDF558F92C52F6870002294F /* Sora-Bold.ttf in Resources */,
+				DDF558FB2C52F6870002294F /* Sora-ExtraLight.ttf in Resources */,
+				DDF558FD2C52F6870002294F /* Sora-Medium.ttf in Resources */,
 				DD145FC42BCB086D0063D4C7 /* Base in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -234,6 +285,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDF559022C52F6950002294F /* Fonts.swift in Sources */,
 				DD78E12A2BCB3AE1002234EC /* BuyView.swift in Sources */,
 				DD46C00C2BF3C6E400C90CF3 /* CoffeeInfo.swift in Sources */,
 				DD145FBC2BCB08690063D4C7 /* HomeViewController.swift in Sources */,
@@ -397,6 +449,7 @@
 				INFOPLIST_FILE = LuckCoffee/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Luck Coffee";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -427,6 +480,7 @@
 				INFOPLIST_FILE = LuckCoffee/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Luck Coffee";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
