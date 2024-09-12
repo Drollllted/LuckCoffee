@@ -9,13 +9,35 @@ import UIKit
 
 class BuyView: UIView{
     
-    func createDeliveryLabels(deliveryLabel: UILabel, AddressLabel: UILabel) -> UIStackView {
+    lazy var shopLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Coffee shop Address"
+        label.font = .customFont(type: .SoraBold, size: 18)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textAlignment = .left
         
-        return UIStackView()
-    }
+        return label
+    }()
+    
+    lazy var streetLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Street, street house street"
+        label.font = .customFont(type: .SoraMedium, size: 16)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textAlignment = .left
+        
+        return label
+    }()
+    
+    //MARK: - Stack Buttons
+    
+    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        setupUI()
+        
+        constraintsUI()
     }
     
     required init?(coder: NSCoder) {
@@ -23,4 +45,22 @@ class BuyView: UIView{
     }
     
     
+}
+extension BuyView{
+    func setupUI(){
+        addSubview(shopLabel)
+        addSubview(streetLabel)
+    }
+    
+    func constraintsUI(){
+        NSLayoutConstraint.activate([
+            shopLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 25),
+            shopLabel.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 15),
+            
+            streetLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15),
+            streetLabel.topAnchor.constraint(equalTo: shopLabel.bottomAnchor, constant: 15),
+            
+            
+        ])
+    }
 }
