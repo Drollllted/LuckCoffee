@@ -14,7 +14,6 @@ class LoveView: UIView {
         layout.scrollDirection = .vertical
         
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
-       // cv.backgroundColor = .gray
         cv.register(LoveCell.self
                     , forCellWithReuseIdentifier: LoveCell.id)
         cv.translatesAutoresizingMaskIntoConstraints = false

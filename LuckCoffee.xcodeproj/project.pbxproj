@@ -15,6 +15,7 @@
 		DD145FC42BCB086D0063D4C7 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = DD145FC32BCB086D0063D4C7 /* Base */; };
 		DD145FD02BCB0A8B0063D4C7 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD145FCF2BCB0A8B0063D4C7 /* TabBarController.swift */; };
 		DD145FD42BCB0D890063D4C7 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD145FD32BCB0D890063D4C7 /* TabBar.swift */; };
+		DD1E12212C933A2A008B6B3E /* Extensions+Observer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1E12202C933A2A008B6B3E /* Extensions+Observer.swift */; };
 		DD2075B42C62A83700611DFD /* SizeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2075B32C62A83700611DFD /* SizeCell.swift */; };
 		DD2075B62C62A8B100611DFD /* Extension+SizeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2075B52C62A8B100611DFD /* Extension+SizeCell.swift */; };
 		DD46C00C2BF3C6E400C90CF3 /* CoffeeInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD46C00B2BF3C6E300C90CF3 /* CoffeeInfo.swift */; };
@@ -52,6 +53,7 @@
 		DD145FC52BCB086D0063D4C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DD145FCF2BCB0A8B0063D4C7 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		DD145FD32BCB0D890063D4C7 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
+		DD1E12202C933A2A008B6B3E /* Extensions+Observer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+Observer.swift"; sourceTree = "<group>"; };
 		DD2075B32C62A83700611DFD /* SizeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizeCell.swift; sourceTree = "<group>"; };
 		DD2075B52C62A8B100611DFD /* Extension+SizeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Extension+SizeCell.swift"; path = "../Extension+SizeCell.swift"; sourceTree = "<group>"; };
 		DD46C00B2BF3C6E300C90CF3 /* CoffeeInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeInfo.swift; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 		DD145FCE2BCB0A5F0063D4C7 /* Support */ = {
 			isa = PBXGroup;
 			children = (
+				DD1E121F2C933A1C008B6B3E /* Extensions */,
 				DDF558EF2C52F6680002294F /* Fonts */,
 				DD145FB72BCB08680063D4C7 /* AppDelegate.swift */,
 				DD145FB92BCB08690063D4C7 /* SceneDelegate.swift */,
@@ -195,6 +198,14 @@
 				DD46C00B2BF3C6E300C90CF3 /* CoffeeInfo.swift */,
 			);
 			path = CoffeeInfo;
+			sourceTree = "<group>";
+		};
+		DD1E121F2C933A1C008B6B3E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				DD1E12202C933A2A008B6B3E /* Extensions+Observer.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		DD6E6D6A2C8F704A0021CBBE /* Core Data */ = {
@@ -341,6 +352,7 @@
 				DD145FBC2BCB08690063D4C7 /* HomeViewController.swift in Sources */,
 				DD145FD02BCB0A8B0063D4C7 /* TabBarController.swift in Sources */,
 				DD78E1282BCB3AB3002234EC /* BuyViewController.swift in Sources */,
+				DD1E12212C933A2A008B6B3E /* Extensions+Observer.swift in Sources */,
 				DD6E6D652C8F6C9C0021CBBE /* CoffeeCoreData.xcdatamodeld in Sources */,
 				DD59687E2BE00CBA001F9011 /* CoffeeCell.swift in Sources */,
 				DD6E6D6D2C8F70690021CBBE /* CoreDataManager.swift in Sources */,

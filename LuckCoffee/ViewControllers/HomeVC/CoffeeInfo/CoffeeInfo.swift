@@ -9,7 +9,7 @@ import UIKit
 
 class CoffeeInfo: UIView {
     
-    var coffeeModel: CoffeeModel!
+    var coffeeInfo: CoffeeInfo!
     private let anchor: CGFloat = 20
     private var isSelected: Bool = false
     

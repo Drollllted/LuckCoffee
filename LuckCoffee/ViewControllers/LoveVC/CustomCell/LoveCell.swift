@@ -10,6 +10,7 @@ import UIKit
 class LoveCell: UICollectionViewCell {
     
     static let id = "Identifire"
+    var coffeeModel: CoffeeModel!
     
     lazy var imageCoffee: UIImageView = {
         let image = UIImageView()
@@ -65,7 +66,7 @@ class LoveCell: UICollectionViewCell {
     }()
     
     @objc private func isNotLiked() {
-        
+
     }
     
     

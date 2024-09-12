@@ -10,7 +10,7 @@ import UIKit
 class LoveViewController: UIViewController {
     
     private var loveView: LoveView!
-    private var favoritesCoffee = [Coffee]()
+    var favoritesCoffee: [Coffee] = []
     private var coreDataManaged = CoreDataManager.shared
     
     override func loadView() {
@@ -21,12 +21,14 @@ class LoveViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavBar()
-        
         setupCollectionView()
+        print(favoritesCoffee.count)
+        NotificationCenter.default.addObserver(self, selector: #selector(getUpdates), name: .getUpdates, object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        updateLoveCollection()
     }
     
     private func setupNavBar() {
@@ -39,6 +41,19 @@ class LoveViewController: UIViewController {
         loveView.loveCollectionView.delegate = self
     }
     
+    private func updateLoveCollection() {
+        do{
+            favoritesCoffee = try coreDataManaged.fetchFavoritexCoffee()
+            loveView.loveCollectionView.reloadData()
+        }catch{
+            print("error in LoveViewController: \(error.localizedDescription)")
+        }
+    }
+    
+    @objc func getUpdates() {
+        updateLoveCollection()
+    }
+    
     
 }
 
@@ -49,6 +64,11 @@ extension LoveViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: LoveCell.id, for: indexPath) as? LoveCell else {fatalError("Troubles troubles")}
+        let coffee = favoritesCoffee[indexPath.item]
+        
+        cell.nameCoffee.text = coffee.nameCoffee
+        cell.coffeeIngredient.text = coffee.coffeeIngredients
+        cell.imageCoffee.image = UIImage(named: coffee.imageCoffee ?? "")
         
         return cell
     }

@@ -28,10 +28,7 @@ class HomeViewController: UIViewController {
         
         homeView.coffeeCollectionView.delegate = self
         homeView.coffeeCollectionView.dataSource = self
-        
     }
-
-
 }
 
 

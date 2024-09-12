@@ -9,9 +9,10 @@ import UIKit
 
 class CoffeeInfoVC: UIViewController{
     
-    private var isSelected: Bool = false
-    var coffeeInfo: CoffeeInfo
-    
+    private var isSelected: Bool = true
+    var coffeeInfo: CoffeeInfo!
+    private var coffeeModel: CoffeeModel?
+    private var coreDataManaged = CoreDataManager.shared
     private var loveButton: UIBarButtonItem!
     
     let sizeMenu = ["S", "M", "L"]
@@ -34,7 +35,6 @@ class CoffeeInfoVC: UIViewController{
         view.backgroundColor = .systemBackground
         setupNavBar()
         delegateCollectionViewSize()
-        
     }
     
     //MARK: Setup NavBar
@@ -60,18 +60,19 @@ class CoffeeInfoVC: UIViewController{
     @objc func didTapHeart() {
         animateLoveButton()
         isSelected.toggle()
-        
+        guard let nameCoffee = coffeeModel?.nameCoffee,
+        let coffeeModel = coffeeModel else {return}
         do{
-            guard let coffeeModel = coffeeInfo.coffeeModel else {return}
-            if isSelected == true {
-                let _ = CoreDataManager.shared.addToFavorites(coffee: coffeeModel)
+            if isSelected {
+                try! coreDataManaged.addToFavorites(coffee: coffeeModel)
                 print("SucceessFully")
-//             NotificationCenter.default.post(name: .updateFavoriteCoffees, object: nil)
             }else{
-           //    let _ = try CoreDataManager.shared.deleteCoffees(coffee: coffeeModel)
+                try! coreDataManaged.deleteCoffees(coffeeName: nameCoffee)
                 print("Coffee removed from favorites")
-                
             }
+            NotificationCenter.default.post(name: .getUpdates, object: nil)
+        }catch{
+            print(error.localizedDescription)
         }
     }
     

@@ -27,7 +27,7 @@ public final class CoreDataManager: NSObject {
     
     //MARK: - Add
     
-    func addToFavorites(coffee: CoffeeModel) {
+    func addToFavorites(coffee: CoffeeModel) throws {
         let newCoffee = Coffee(context: context)
         newCoffee.nameCoffee = coffee.nameCoffee
         newCoffee.coffeePrice = coffee.coffeePrice
@@ -45,10 +45,10 @@ public final class CoreDataManager: NSObject {
     
     //MARK: - Fetch
     
-    func fetchFavoritexCoffee() -> [Coffee] {
+    func fetchFavoritexCoffee() throws -> [Coffee] {
         do{
             let request = Coffee.fetchRequest() as NSFetchRequest<Coffee>
-            let coffees = try! context.fetch(request)
+            let coffees = try context.fetch(request)
             return coffees
         }
     }
@@ -65,7 +65,7 @@ public final class CoreDataManager: NSObject {
     
     //MARK: - Delete Coffee
     
-    func deleteCoffees(coffeeName: String) {
+    func deleteCoffees(coffeeName: String) throws {
         let fetchRequest = Coffee.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "nameCoffee = %@", coffeeName)
         
