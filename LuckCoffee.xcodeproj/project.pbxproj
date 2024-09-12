@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DD11F1F32C6D3DCA00E9A5B8 /* LoveCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD11F1F22C6D3DCA00E9A5B8 /* LoveCell.swift */; };
 		DD145FB82BCB08680063D4C7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD145FB72BCB08680063D4C7 /* AppDelegate.swift */; };
 		DD145FBA2BCB08690063D4C7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD145FB92BCB08690063D4C7 /* SceneDelegate.swift */; };
 		DD145FBC2BCB08690063D4C7 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD145FBB2BCB08690063D4C7 /* HomeViewController.swift */; };
@@ -14,10 +15,15 @@
 		DD145FC42BCB086D0063D4C7 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = DD145FC32BCB086D0063D4C7 /* Base */; };
 		DD145FD02BCB0A8B0063D4C7 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD145FCF2BCB0A8B0063D4C7 /* TabBarController.swift */; };
 		DD145FD42BCB0D890063D4C7 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD145FD32BCB0D890063D4C7 /* TabBar.swift */; };
+		DD2075B42C62A83700611DFD /* SizeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2075B32C62A83700611DFD /* SizeCell.swift */; };
+		DD2075B62C62A8B100611DFD /* Extension+SizeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2075B52C62A8B100611DFD /* Extension+SizeCell.swift */; };
 		DD46C00C2BF3C6E400C90CF3 /* CoffeeInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD46C00B2BF3C6E300C90CF3 /* CoffeeInfo.swift */; };
 		DD59687A2BD566BE001F9011 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5968792BD566BE001F9011 /* Data.swift */; };
 		DD59687C2BD56802001F9011 /* CoffeeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD59687B2BD56801001F9011 /* CoffeeModel.swift */; };
 		DD59687E2BE00CBA001F9011 /* CoffeeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD59687D2BE00CBA001F9011 /* CoffeeCell.swift */; };
+		DD6E6D652C8F6C9C0021CBBE /* CoffeeCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DD6E6D632C8F6C9C0021CBBE /* CoffeeCoreData.xcdatamodeld */; };
+		DD6E6D692C8F6FCB0021CBBE /* Coffee+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6E6D672C8F6FCB0021CBBE /* Coffee+CoreDataProperties.swift */; };
+		DD6E6D6D2C8F70690021CBBE /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6E6D6C2C8F70690021CBBE /* CoreDataManager.swift */; };
 		DD78E1222BCB3998002234EC /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD78E1212BCB3998002234EC /* HomeView.swift */; };
 		DD78E1242BCB3A46002234EC /* LoveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD78E1232BCB3A46002234EC /* LoveViewController.swift */; };
 		DD78E1262BCB3A4F002234EC /* LoveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD78E1252BCB3A4F002234EC /* LoveView.swift */; };
@@ -36,6 +42,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DD11F1F22C6D3DCA00E9A5B8 /* LoveCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoveCell.swift; sourceTree = "<group>"; };
 		DD145FB42BCB08680063D4C7 /* LuckCoffee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LuckCoffee.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD145FB72BCB08680063D4C7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DD145FB92BCB08690063D4C7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -45,10 +52,15 @@
 		DD145FC52BCB086D0063D4C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DD145FCF2BCB0A8B0063D4C7 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		DD145FD32BCB0D890063D4C7 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
+		DD2075B32C62A83700611DFD /* SizeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizeCell.swift; sourceTree = "<group>"; };
+		DD2075B52C62A8B100611DFD /* Extension+SizeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Extension+SizeCell.swift"; path = "../Extension+SizeCell.swift"; sourceTree = "<group>"; };
 		DD46C00B2BF3C6E300C90CF3 /* CoffeeInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeInfo.swift; sourceTree = "<group>"; };
 		DD5968792BD566BE001F9011 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		DD59687B2BD56801001F9011 /* CoffeeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeModel.swift; sourceTree = "<group>"; };
 		DD59687D2BE00CBA001F9011 /* CoffeeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeCell.swift; sourceTree = "<group>"; };
+		DD6E6D642C8F6C9C0021CBBE /* CoffeeCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoffeeCoreData.xcdatamodel; sourceTree = "<group>"; };
+		DD6E6D672C8F6FCB0021CBBE /* Coffee+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Coffee+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		DD6E6D6C2C8F70690021CBBE /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		DD78E1212BCB3998002234EC /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		DD78E1232BCB3A46002234EC /* LoveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoveViewController.swift; sourceTree = "<group>"; };
 		DD78E1252BCB3A4F002234EC /* LoveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoveView.swift; sourceTree = "<group>"; };
@@ -77,9 +89,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DD11F1F12C6D3DAC00E9A5B8 /* CustomCell */ = {
+			isa = PBXGroup;
+			children = (
+				DD11F1F22C6D3DCA00E9A5B8 /* LoveCell.swift */,
+			);
+			path = CustomCell;
+			sourceTree = "<group>";
+		};
 		DD145FAB2BCB08680063D4C7 = {
 			isa = PBXGroup;
 			children = (
+				DD6E6D632C8F6C9C0021CBBE /* CoffeeCoreData.xcdatamodeld */,
 				DD145FB62BCB08680063D4C7 /* LuckCoffee */,
 				DD145FB52BCB08680063D4C7 /* Products */,
 			);
@@ -96,6 +117,7 @@
 		DD145FB62BCB08680063D4C7 /* LuckCoffee */ = {
 			isa = PBXGroup;
 			children = (
+				DD6E6D6A2C8F704A0021CBBE /* Core Data */,
 				DD145FD22BCB0D5C0063D4C7 /* ViewControllers */,
 				DD145FCE2BCB0A5F0063D4C7 /* Support */,
 				DD145FC52BCB086D0063D4C7 /* Info.plist */,
@@ -106,8 +128,7 @@
 		DD145FCB2BCB0A210063D4C7 /* HomeVC */ = {
 			isa = PBXGroup;
 			children = (
-				DD9D07D82BF29C2700932D2C /* CoffeeInfoVC.swift */,
-				DD46C00B2BF3C6E300C90CF3 /* CoffeeInfo.swift */,
+				DD1E121E2C93275D008B6B3E /* CoffeeInfo */,
 				DD78E12E2BD05C0F002234EC /* Data */,
 				DD78E12B2BCEDAA9002234EC /* CustomCell */,
 				DD145FBB2BCB08690063D4C7 /* HomeViewController.swift */,
@@ -119,6 +140,7 @@
 		DD145FCC2BCB0A2F0063D4C7 /* LoveVC */ = {
 			isa = PBXGroup;
 			children = (
+				DD11F1F12C6D3DAC00E9A5B8 /* CustomCell */,
 				DD78E1232BCB3A46002234EC /* LoveViewController.swift */,
 				DD78E1252BCB3A4F002234EC /* LoveView.swift */,
 			);
@@ -166,10 +188,38 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
+		DD1E121E2C93275D008B6B3E /* CoffeeInfo */ = {
+			isa = PBXGroup;
+			children = (
+				DD9D07D82BF29C2700932D2C /* CoffeeInfoVC.swift */,
+				DD46C00B2BF3C6E300C90CF3 /* CoffeeInfo.swift */,
+			);
+			path = CoffeeInfo;
+			sourceTree = "<group>";
+		};
+		DD6E6D6A2C8F704A0021CBBE /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				DD6E6D6B2C8F705B0021CBBE /* Core Data Manager */,
+				DD6E6D672C8F6FCB0021CBBE /* Coffee+CoreDataProperties.swift */,
+			);
+			path = "Core Data";
+			sourceTree = "<group>";
+		};
+		DD6E6D6B2C8F705B0021CBBE /* Core Data Manager */ = {
+			isa = PBXGroup;
+			children = (
+				DD6E6D6C2C8F70690021CBBE /* CoreDataManager.swift */,
+			);
+			path = "Core Data Manager";
+			sourceTree = "<group>";
+		};
 		DD78E12B2BCEDAA9002234EC /* CustomCell */ = {
 			isa = PBXGroup;
 			children = (
 				DD59687D2BE00CBA001F9011 /* CoffeeCell.swift */,
+				DD2075B32C62A83700611DFD /* SizeCell.swift */,
+				DD2075B52C62A8B100611DFD /* Extension+SizeCell.swift */,
 			);
 			path = CustomCell;
 			sourceTree = "<group>";
@@ -291,13 +341,19 @@
 				DD145FBC2BCB08690063D4C7 /* HomeViewController.swift in Sources */,
 				DD145FD02BCB0A8B0063D4C7 /* TabBarController.swift in Sources */,
 				DD78E1282BCB3AB3002234EC /* BuyViewController.swift in Sources */,
+				DD6E6D652C8F6C9C0021CBBE /* CoffeeCoreData.xcdatamodeld in Sources */,
 				DD59687E2BE00CBA001F9011 /* CoffeeCell.swift in Sources */,
+				DD6E6D6D2C8F70690021CBBE /* CoreDataManager.swift in Sources */,
 				DD9D07D92BF29C2700932D2C /* CoffeeInfoVC.swift in Sources */,
 				DD78E1262BCB3A4F002234EC /* LoveView.swift in Sources */,
 				DD59687C2BD56802001F9011 /* CoffeeModel.swift in Sources */,
 				DD145FB82BCB08680063D4C7 /* AppDelegate.swift in Sources */,
 				DD78E1222BCB3998002234EC /* HomeView.swift in Sources */,
+				DD6E6D692C8F6FCB0021CBBE /* Coffee+CoreDataProperties.swift in Sources */,
 				DD59687A2BD566BE001F9011 /* Data.swift in Sources */,
+				DD11F1F32C6D3DCA00E9A5B8 /* LoveCell.swift in Sources */,
+				DD2075B42C62A83700611DFD /* SizeCell.swift in Sources */,
+				DD2075B62C62A8B100611DFD /* Extension+SizeCell.swift in Sources */,
 				DD145FBA2BCB08690063D4C7 /* SceneDelegate.swift in Sources */,
 				DD145FD42BCB0D890063D4C7 /* TabBar.swift in Sources */,
 				DD78E1242BCB3A46002234EC /* LoveViewController.swift in Sources */,
@@ -521,6 +577,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		DD6E6D632C8F6C9C0021CBBE /* CoffeeCoreData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				DD6E6D642C8F6C9C0021CBBE /* CoffeeCoreData.xcdatamodel */,
+			);
+			currentVersion = DD6E6D642C8F6C9C0021CBBE /* CoffeeCoreData.xcdatamodel */;
+			name = CoffeeCoreData.xcdatamodeld;
+			path = /Users/drolllted/Desktop/Xcode/LuckCoffee/CoffeeCoreData.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = DD145FAC2BCB08680063D4C7 /* Project object */;
 }

@@ -23,7 +23,7 @@ class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemBackground
+        view.backgroundColor = .colors
         self.navigationController?.navigationBar.tintColor = .clear
         
         homeView.coffeeCollectionView.delegate = self

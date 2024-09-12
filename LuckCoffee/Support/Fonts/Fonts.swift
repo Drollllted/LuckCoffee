@@ -20,7 +20,7 @@ enum Fonts: String {
 }
 
 extension UIFont{
-    static func customFont(type: Fonts, size: CGFloat)-> UIFont?{
+    static func customFont(type: Fonts, size: CGFloat) -> UIFont?{
         return UIFont(name: type.rawValue, size: size)
     }
 }

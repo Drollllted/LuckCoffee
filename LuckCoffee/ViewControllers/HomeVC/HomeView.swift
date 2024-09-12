@@ -32,7 +32,7 @@ class HomeView: UIView{
     
     lazy var backgroundBrownView: UIView = {
         let view = UIView()
-        view.backgroundColor = .brown
+        view.backgroundColor = .backgroundRectangle
         view.translatesAutoresizingMaskIntoConstraints = false
         
         view.heightAnchor.constraint(equalToConstant: 350).isActive = true
@@ -45,7 +45,7 @@ class HomeView: UIView{
         let label = UILabel()
         label.text = "Location"
         label.font = .customFont(type: .SoraRegular, size: 14)
-        label.textColor = .gray
+        label.textColor = .darkGray
         label.textAlignment = .left
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -56,7 +56,7 @@ class HomeView: UIView{
         label.text = "Kolpino, Saint-P"
         label.font = .customFont(type: .SoraSemiBold, size: 16)
         label.textAlignment = .left
-        label.textColor = .black
+        label.textColor = .white
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -112,7 +112,7 @@ class HomeView: UIView{
         let button = UIButton()
         button.setImage(UIImage(systemName: "slider.horizontal.3"), for: .normal)
         button.tintColor = .white
-        button.backgroundColor = .orange
+        button.backgroundColor = .liked
         button.layer.cornerRadius = 10
         
         button.translatesAutoresizingMaskIntoConstraints = false
