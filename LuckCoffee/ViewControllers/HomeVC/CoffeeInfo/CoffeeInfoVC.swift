@@ -11,7 +11,7 @@ class CoffeeInfoVC: UIViewController{
     
     private var isSelected: Bool = true
     var coffeeInfo: CoffeeInfo!
-    private var coffeeModel: CoffeeModel?
+    var detailModel: CoffeeModel?
     private var coreDataManaged = CoreDataManager.shared
     private var loveButton: UIBarButtonItem!
     
@@ -35,6 +35,7 @@ class CoffeeInfoVC: UIViewController{
         view.backgroundColor = .systemBackground
         setupNavBar()
         delegateCollectionViewSize()
+        print(detailModel)
     }
     
     //MARK: Setup NavBar
@@ -60,20 +61,24 @@ class CoffeeInfoVC: UIViewController{
     @objc func didTapHeart() {
         animateLoveButton()
         isSelected.toggle()
-        guard let nameCoffee = coffeeModel?.nameCoffee,
-        let coffeeModel = coffeeModel else {return}
-        do{
-            if isSelected {
-                try! coreDataManaged.addToFavorites(coffee: coffeeModel)
-                print("SucceessFully")
-            }else{
-                try! coreDataManaged.deleteCoffees(coffeeName: nameCoffee)
-                print("Coffee removed from favorites")
-            }
-            NotificationCenter.default.post(name: .getUpdates, object: nil)
-        }catch{
-            print(error.localizedDescription)
+        guard let nameCoffee = detailModel?.nameCoffee,
+              let coffeeModel = detailModel else {
+            print("Guard failed: coffeeModel or nameCoffee is nil")
+            return
         }
+        print("333")
+        if isSelected {
+            print("1232123")
+            coreDataManaged.addToFavorites(coffee: coffeeModel)
+            print(CoreDataManager.coffee.count)
+            print("SucceessFully")
+        }else{
+            coreDataManaged.deleteCoffees(coffeeName: nameCoffee)
+            print("Coffee removed from favorites")
+        }
+        NotificationCenter.default.post(name: .getUpdates, object: nil)
+        print("Is selected: \(isSelected)")
+        print("Current favorites count: \(CoreDataManager.coffee.count)")
     }
     
     @objc func backButtonAction() {

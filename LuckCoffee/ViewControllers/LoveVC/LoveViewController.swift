@@ -10,7 +10,7 @@ import UIKit
 class LoveViewController: UIViewController {
     
     private var loveView: LoveView!
-    var favoritesCoffee: [Coffee] = []
+    var favoritesCoffee = CoreDataManager.coffee
     private var coreDataManaged = CoreDataManager.shared
     
     override func loadView() {
@@ -43,6 +43,7 @@ class LoveViewController: UIViewController {
     
     private func updateLoveCollection() {
         do{
+            print("123")
             favoritesCoffee = try coreDataManaged.fetchFavoritexCoffee()
             loveView.loveCollectionView.reloadData()
         }catch{

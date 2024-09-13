@@ -12,10 +12,10 @@ enum CoreDataErrors {
     case notFound
 }
 
-public final class CoreDataManager: NSObject {
+final class CoreDataManager: NSObject {
     
     static let shared = CoreDataManager()
-    private override init(){}
+    static var coffee = [Coffee]()
     
     private var appDelegate: AppDelegate {
         UIApplication.shared.delegate as! AppDelegate
@@ -25,9 +25,13 @@ public final class CoreDataManager: NSObject {
         return appDelegate.persistentContainer.viewContext
     }
     
+    private override init(){
+        super.init()
+    }
+    
     //MARK: - Add
     
-    func addToFavorites(coffee: CoffeeModel) throws {
+    func addToFavorites(coffee: CoffeeModel) {
         let newCoffee = Coffee(context: context)
         newCoffee.nameCoffee = coffee.nameCoffee
         newCoffee.coffeePrice = coffee.coffeePrice
@@ -45,11 +49,11 @@ public final class CoreDataManager: NSObject {
     
     //MARK: - Fetch
     
-    func fetchFavoritexCoffee() throws -> [Coffee] {
+    func fetchFavoritexCoffee() -> [Coffee] {
         do{
             let request = Coffee.fetchRequest() as NSFetchRequest<Coffee>
-            let coffees = try context.fetch(request)
-            return coffees
+            CoreDataManager.coffee = try! context.fetch(request)
+            return CoreDataManager.coffee
         }
     }
     
@@ -65,7 +69,7 @@ public final class CoreDataManager: NSObject {
     
     //MARK: - Delete Coffee
     
-    func deleteCoffees(coffeeName: String) throws {
+    func deleteCoffees(coffeeName: String) {
         let fetchRequest = Coffee.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "nameCoffee = %@", coffeeName)
         

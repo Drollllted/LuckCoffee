@@ -52,6 +52,7 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let vc = CoffeeInfoVC()
         let coffeeModel = data[indexPath.row]
+        vc.detailModel = coffeeModel
         vc.coffeeInfo.imageCoffeeInfo.image = UIImage(named: coffeeModel.imageCoffee ?? "CoffeeImage")
         vc.coffeeInfo.namedCoffeeInfo.text = coffeeModel.nameCoffee
         vc.coffeeInfo.ingredientsCoffee.text = coffeeModel.coffeeIngredients
