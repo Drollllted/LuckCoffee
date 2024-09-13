@@ -9,7 +9,7 @@ import UIKit
 
 class CoffeeInfoVC: UIViewController{
     
-    private var isSelected: Bool = true
+    private var isSelected: Bool = false
     var coffeeInfo: CoffeeInfo!
     var detailModel: CoffeeModel?
     private var coreDataManaged = CoreDataManager.shared
@@ -35,7 +35,6 @@ class CoffeeInfoVC: UIViewController{
         view.backgroundColor = .systemBackground
         setupNavBar()
         delegateCollectionViewSize()
-        print(detailModel)
     }
     
     //MARK: Setup NavBar
@@ -43,7 +42,11 @@ class CoffeeInfoVC: UIViewController{
     func setupNavBar() {
         self.navigationItem.title = "Detail"
 
-        loveButton = UIBarButtonItem(image: UIImage(systemName: "heart.fill")?.withRenderingMode(.alwaysTemplate), style: .plain, target: self, action: #selector(didTapHeart))
+        loveButton = UIBarButtonItem(image: UIImage(systemName: "heart.fill")?.withTintColor(.black, renderingMode: .alwaysTemplate),
+                                     style: .plain,
+                                     target: self,
+                                     action: #selector(didTapHeart))
+        
         navigationItem.rightBarButtonItem = loveButton
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font : UIFont(name: "Sora-Bold", size: 18)!]
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "arrow.left")?.withTintColor(.gray, renderingMode: .alwaysOriginal), style: .done, target: self, action: #selector(backButtonAction))
@@ -59,26 +62,7 @@ class CoffeeInfoVC: UIViewController{
     }
     
     @objc func didTapHeart() {
-        animateLoveButton()
-        isSelected.toggle()
-        guard let nameCoffee = detailModel?.nameCoffee,
-              let coffeeModel = detailModel else {
-            print("Guard failed: coffeeModel or nameCoffee is nil")
-            return
-        }
-        print("333")
-        if isSelected {
-            print("1232123")
-            coreDataManaged.addToFavorites(coffee: coffeeModel)
-            print(CoreDataManager.coffee.count)
-            print("SucceessFully")
-        }else{
-            coreDataManaged.deleteCoffees(coffeeName: nameCoffee)
-            print("Coffee removed from favorites")
-        }
-        NotificationCenter.default.post(name: .getUpdates, object: nil)
-        print("Is selected: \(isSelected)")
-        print("Current favorites count: \(CoreDataManager.coffee.count)")
+        addOrDelete()
     }
     
     @objc func backButtonAction() {
@@ -87,21 +71,33 @@ class CoffeeInfoVC: UIViewController{
     
     //MARK: - Functions not @Objc
     
-    private func animateLoveButton() {
-        UIView.animate(withDuration: 0.3, animations: { [weak self] in
-            self?.loveButton.tintColor = self?.isSelected ?? false ? UIColor(named: "LikedColor") ?? .red : .black
-            self?.navigationController?.navigationBar.backgroundColor = self?.isSelected ?? false ? UIColor(named: "LikedColor")?.withAlphaComponent(0.1) ?? UIColor.red.withAlphaComponent(0.1) : .clear
-        }) { [weak self] _ in
-            UIView.animate(withDuration: 0.3, animations: {
-                self?.navigationController?.navigationBar.backgroundColor = .clear
-            })
-        }
-    }
-    
-    
     func delegateCollectionViewSize() {
         coffeeInfo.collectionViewSize.delegate = self
         coffeeInfo.collectionViewSize.dataSource = self
+    }
+    
+    func addOrDelete() {
+        guard let nameCoffee = detailModel?.nameCoffee,
+              let coffeeModel = detailModel else {
+            print("Guard failed: coffeeModel or nameCoffee is nil")
+            return
+        }
+        do{
+            if isSelected {
+                loveButton.tintColor = .black
+                coreDataManaged.deleteCoffees(coffeeName: nameCoffee)
+                print("Coffee removed from favorites")
+            }else{
+                loveButton.tintColor = UIColor(named: "LikedColor")
+                coreDataManaged.addToFavorites(coffee: coffeeModel)
+                print("SucceessFully")
+            }
+            isSelected.toggle()
+        }
+        NotificationCenter.default.post(name: .getUpdates, object: nil)
+        
+        print("Is selected: \(isSelected)")
+        print("Current favorites count: \(CoreDataManager.shared.coffee.count)")
     }
     
 }

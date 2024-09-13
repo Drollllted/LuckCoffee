@@ -49,6 +49,7 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
         cell.priceCoffeeLabel.text = "\(coffeeModel.coffeePrice)$"
         return cell
     }
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let vc = CoffeeInfoVC()
         let coffeeModel = data[indexPath.row]

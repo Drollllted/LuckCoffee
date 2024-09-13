@@ -10,7 +10,6 @@ import UIKit
 class LoveCell: UICollectionViewCell {
     
     static let id = "Identifire"
-    var coffeeModel: CoffeeModel!
     
     lazy var imageCoffee: UIImageView = {
         let image = UIImageView()
@@ -46,9 +45,7 @@ class LoveCell: UICollectionViewCell {
         stack.spacing = 20
         stack.axis = .vertical
         
-        
         stack.translatesAutoresizingMaskIntoConstraints = false
-        
         stack.addArrangedSubview(nameCoffee)
         stack.addArrangedSubview(coffeeIngredient)
         
@@ -59,16 +56,10 @@ class LoveCell: UICollectionViewCell {
         let button = UIButton()
         button.setImage(UIImage(systemName: "heart.fill"), for: .normal)
         button.tintColor = .systemBrown
-        button.addTarget(self, action: #selector(isNotLiked), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         
         return button
     }()
-    
-    @objc private func isNotLiked() {
-
-    }
-    
     
     
     override init(frame: CGRect) {

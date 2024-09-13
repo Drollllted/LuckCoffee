@@ -9,9 +9,13 @@ import UIKit
 
 class LoveViewController: UIViewController {
     
+    //MARK: - Properties
+    
     private var loveView: LoveView!
-    var favoritesCoffee = CoreDataManager.coffee
+    var favoritesCoffee = CoreDataManager.shared.coffee
     private var coreDataManaged = CoreDataManager.shared
+    
+    //MARK: - LifeCycles
     
     override func loadView() {
         loveView = LoveView()
@@ -22,14 +26,16 @@ class LoveViewController: UIViewController {
         super.viewDidLoad()
         setupNavBar()
         setupCollectionView()
-        print(favoritesCoffee.count)
         NotificationCenter.default.addObserver(self, selector: #selector(getUpdates), name: .getUpdates, object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         updateLoveCollection()
+        loveView.loveCollectionView.reloadData()
     }
+    
+    //MARK: - Func in ViewDidLoad not @objc
     
     private func setupNavBar() {
         navigationItem.title = "Love"
@@ -44,12 +50,12 @@ class LoveViewController: UIViewController {
     private func updateLoveCollection() {
         do{
             print("123")
-            favoritesCoffee = try coreDataManaged.fetchFavoritexCoffee()
+            favoritesCoffee = coreDataManaged.fetchFavoritexCoffee()
             loveView.loveCollectionView.reloadData()
-        }catch{
-            print("error in LoveViewController: \(error.localizedDescription)")
         }
     }
+    
+    //MARK: - @Objc function in ViewDidLoad
     
     @objc func getUpdates() {
         updateLoveCollection()
@@ -58,6 +64,8 @@ class LoveViewController: UIViewController {
     
 }
 
+//MARK: - Extensions in LoveCollectionView
+
 extension LoveViewController: UICollectionViewDelegate, UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return favoritesCoffee.count
@@ -65,13 +73,30 @@ extension LoveViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: LoveCell.id, for: indexPath) as? LoveCell else {fatalError("Troubles troubles")}
-        let coffee = favoritesCoffee[indexPath.item]
         
-        cell.nameCoffee.text = coffee.nameCoffee
-        cell.coffeeIngredient.text = coffee.coffeeIngredients
-        cell.imageCoffee.image = UIImage(named: coffee.imageCoffee ?? "")
+            let coffee = favoritesCoffee[indexPath.item]
+            cell.nameCoffee.text = coffee.nameCoffee
+            cell.coffeeIngredient.text = coffee.coffeeIngredients
+            cell.imageCoffee.image = UIImage(named: coffee.imageCoffee ?? "")
+            cell.heartButton.addTarget(self, action: #selector(deleteRow), for: .touchUpInside)
         
         return cell
+    }
+    
+    //MARK: - objc function in collectionView button
+    
+    @objc private func deleteRow(at indexPath: IndexPath) {
+        guard let coffeeName = coreDataManaged.coffee[indexPath.item].nameCoffee else {return}
+        do{
+            print("231")
+            coreDataManaged.deleteCoffees(coffeeName: coffeeName)
+            coreDataManaged.coffee.remove(at: indexPath.item)
+            loveView.loveCollectionView.performBatchUpdates({
+                loveView.loveCollectionView.deleteItems(at: [indexPath])
+            }, completion: nil)
+        }catch{
+            print("error with loveCollectionView: \(error.localizedDescription)")
+        }
     }
     
 }

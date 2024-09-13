@@ -15,7 +15,7 @@ enum CoreDataErrors {
 final class CoreDataManager: NSObject {
     
     static let shared = CoreDataManager()
-    static var coffee = [Coffee]()
+    var coffee = [Coffee]()
     
     private var appDelegate: AppDelegate {
         UIApplication.shared.delegate as! AppDelegate
@@ -52,8 +52,14 @@ final class CoreDataManager: NSObject {
     func fetchFavoritexCoffee() -> [Coffee] {
         do{
             let request = Coffee.fetchRequest() as NSFetchRequest<Coffee>
-            CoreDataManager.coffee = try! context.fetch(request)
-            return CoreDataManager.coffee
+            coffee = try! context.fetch(request)
+            return coffee
+        }
+    }
+    
+    func updateFavoriteCoffee() {
+        do{
+            let request = Coffee.fetchRequest() as NSFetchRequest<Coffee>
         }
     }
     
