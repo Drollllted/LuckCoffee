@@ -74,28 +74,27 @@ extension LoveViewController: UICollectionViewDelegate, UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: LoveCell.id, for: indexPath) as? LoveCell else {fatalError("Troubles troubles")}
         
-            let coffee = favoritesCoffee[indexPath.item]
-            cell.nameCoffee.text = coffee.nameCoffee
-            cell.coffeeIngredient.text = coffee.coffeeIngredients
-            cell.imageCoffee.image = UIImage(named: coffee.imageCoffee ?? "")
-            cell.heartButton.addTarget(self, action: #selector(deleteRow), for: .touchUpInside)
+        let coffee = favoritesCoffee[indexPath.item]
+        cell.nameCoffee.text = coffee.nameCoffee
+        cell.coffeeIngredient.text = coffee.coffeeIngredients
+        cell.imageCoffee.image = UIImage(named: coffee.imageCoffee ?? "")
+        cell.heartButton.addTarget(self, action: #selector(deleteRow), for: .touchUpInside)
         
         return cell
     }
     
     //MARK: - objc function in collectionView button
     
-    @objc private func deleteRow(at indexPath: IndexPath) {
-        guard let coffeeName = coreDataManaged.coffee[indexPath.item].nameCoffee else {return}
-        do{
-            print("231")
+    @objc private func deleteRow(_ sender: UIButton) {
+             let indexPath = IndexPath(item: sender.tag, section: 0)
+             guard let coffeeName = favoritesCoffee[indexPath.item].nameCoffee else { return }
+        
+        do {
             coreDataManaged.deleteCoffees(coffeeName: coffeeName)
-            coreDataManaged.coffee.remove(at: indexPath.item)
+            favoritesCoffee.remove(at: indexPath.item)
             loveView.loveCollectionView.performBatchUpdates({
                 loveView.loveCollectionView.deleteItems(at: [indexPath])
             }, completion: nil)
-        }catch{
-            print("error with loveCollectionView: \(error.localizedDescription)")
         }
     }
     
