@@ -75,19 +75,22 @@ extension LoveViewController: UICollectionViewDelegate, UICollectionViewDataSour
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: LoveCell.id, for: indexPath) as? LoveCell else {fatalError("Troubles troubles")}
         
         let coffee = favoritesCoffee[indexPath.item]
+        
         cell.nameCoffee.text = coffee.nameCoffee
         cell.coffeeIngredient.text = coffee.coffeeIngredients
         cell.imageCoffee.image = UIImage(named: coffee.imageCoffee ?? "")
-        cell.heartButton.addTarget(self, action: #selector(deleteRow), for: .touchUpInside)
         
         return cell
     }
     
-    //MARK: - objc function in collectionView button
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        delete(at: indexPath)
+    }
     
-    @objc private func deleteRow(_ sender: UIButton) {
-             let indexPath = IndexPath(item: sender.tag, section: 0)
-             guard let coffeeName = favoritesCoffee[indexPath.item].nameCoffee else { return }
+    //MARK: - function in collectionView button
+    
+    func delete(at indexPath: IndexPath) {
+        guard let coffeeName = favoritesCoffee[indexPath.item].nameCoffee else {return}
         
         do {
             coreDataManaged.deleteCoffees(coffeeName: coffeeName)

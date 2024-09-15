@@ -19,12 +19,23 @@ class BuyView: UIView{
         return label
     }()
     
-    lazy var streetLabel: UILabel = {
+    lazy var cityLabel: UILabel = {
         let label = UILabel()
-        label.text = "Street, street house street"
+        label.text = "Saint-P"
         label.font = .customFont(type: .SoraMedium, size: 16)
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .left
+        
+        return label
+    }()
+    
+    lazy var streetLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Bolshaya Konyushennaya street, 31"
+        label.textAlignment = .left
+        label.font = .customFont(type: .SoraLight, size: 16)
+        
+        label.translatesAutoresizingMaskIntoConstraints = false
         
         return label
     }()
@@ -49,16 +60,20 @@ class BuyView: UIView{
 extension BuyView{
     func setupUI(){
         addSubview(shopLabel)
+        addSubview(cityLabel)
         addSubview(streetLabel)
     }
     
     func constraintsUI(){
         NSLayoutConstraint.activate([
-            shopLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 25),
+            shopLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
             shopLabel.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 15),
             
+            cityLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15),
+            cityLabel.topAnchor.constraint(equalTo: shopLabel.bottomAnchor, constant: 15),
+            
             streetLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15),
-            streetLabel.topAnchor.constraint(equalTo: shopLabel.bottomAnchor, constant: 15),
+            streetLabel.topAnchor.constraint(equalTo: cityLabel.bottomAnchor, constant: 10),
             
             
         ])
