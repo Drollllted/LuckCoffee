@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TabBar: UIView {
+final class TabBar: UIView {
     
     static let shared = TabBar()
     

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class LoveView: UIView {
+final class LoveView: UIView {
     
     lazy var loveCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()

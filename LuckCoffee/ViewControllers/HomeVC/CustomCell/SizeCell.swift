@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SizeCell: UICollectionViewCell {
+final class SizeCell: UICollectionViewCell {
     
     static let identifire = "id"
     

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CoffeeInfo: UIView {
+final class CoffeeInfo: UIView {
     
     var coffeeInfo: CoffeeInfo!
     private let anchor: CGFloat = 20

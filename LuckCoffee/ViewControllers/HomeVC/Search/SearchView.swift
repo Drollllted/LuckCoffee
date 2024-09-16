@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SearchView: UIView {
+final class SearchView: UIView {
     
     lazy var backView: UIView = {
         let view = UIView()

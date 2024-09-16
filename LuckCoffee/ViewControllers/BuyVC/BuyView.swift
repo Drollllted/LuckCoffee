@@ -7,7 +7,7 @@
 
 import UIKit
 
-class BuyView: UIView{
+final class BuyView: UIView{
     
     lazy var shopLabel: UILabel = {
         let label = UILabel()

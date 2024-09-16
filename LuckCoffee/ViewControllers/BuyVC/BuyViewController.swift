@@ -7,7 +7,7 @@
 
 import UIKit
 
-class BuyViewController: UIViewController {
+final class BuyViewController: UIViewController {
     
     private var buyView: BuyView!
     

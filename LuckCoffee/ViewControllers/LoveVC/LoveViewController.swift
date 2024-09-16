@@ -7,7 +7,7 @@
 
 import UIKit
 
-class LoveViewController: UIViewController {
+final class LoveViewController: UIViewController {
     
     //MARK: - Properties
     

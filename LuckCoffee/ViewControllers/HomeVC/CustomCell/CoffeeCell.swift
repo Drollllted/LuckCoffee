@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CoffeeCell: UICollectionViewCell{
+final class CoffeeCell: UICollectionViewCell{
     //MARK: - Properties
     static let identifire = "identifire"
     var coffeeModel: CoffeeModel!

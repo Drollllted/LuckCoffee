@@ -7,7 +7,7 @@
 
 import UIKit
 
-class LoveCell: UICollectionViewCell {
+final class LoveCell: UICollectionViewCell {
     
     static let id = "Identifire"
     

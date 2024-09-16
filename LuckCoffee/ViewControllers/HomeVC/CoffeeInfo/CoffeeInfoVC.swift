@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CoffeeInfoVC: UIViewController{
+final class CoffeeInfoVC: UIViewController{
     
     private var isSelected: Bool = false
     var coffeeInfo: CoffeeInfo!
