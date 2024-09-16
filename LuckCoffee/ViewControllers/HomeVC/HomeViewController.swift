@@ -28,7 +28,15 @@ class HomeViewController: UIViewController {
         
         homeView.coffeeCollectionView.delegate = self
         homeView.coffeeCollectionView.dataSource = self
+        
+        homeView.buttonTextField.addTarget(self, action: #selector(goToSearchVC), for: .touchUpInside)
     }
+    
+    @objc private func goToSearchVC(){
+        let vc = SearchViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
 }
 
 
