@@ -28,6 +28,7 @@ class SearchView: UIView {
         tf.textColor = .white
         tf.backgroundColor = .clear
         tf.keyboardType = .default
+        tf.layer.cornerRadius = 15
         
         tf.translatesAutoresizingMaskIntoConstraints = false
         
@@ -52,10 +53,21 @@ extension SearchView{
     }
     
     func setupUI(){
-        
+        addSubview(backView)
+        backView.addSubview(searchTextField)
     }
     
     func constraintsUI(){
-        
+        NSLayoutConstraint.activate([
+            backView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 15),
+            backView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15),
+            backView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -15),
+            backView.heightAnchor.constraint(equalToConstant: 50),
+            
+            searchTextField.leadingAnchor.constraint(equalTo: backView.leadingAnchor, constant: 15),
+            searchTextField.trailingAnchor.constraint(equalTo: backView.trailingAnchor, constant: -5),
+            searchTextField.topAnchor.constraint(equalTo: backView.topAnchor),
+            searchTextField.bottomAnchor.constraint(equalTo: backView.bottomAnchor),
+        ])
     }
 }

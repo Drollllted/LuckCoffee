@@ -22,7 +22,7 @@ class SearchViewController: UIViewController{
     }
     
     func setupNavBar() {
-        self.navigationController?.title = "Search"
+        self.navigationItem.title = "Search"
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font : UIFont(name: "Sora-Bold", size: 18)!]
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "arrow.left")?.withTintColor(.gray, renderingMode: .alwaysOriginal), style: .done, target: self, action: #selector(backButtonAction))
     }
