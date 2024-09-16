@@ -16,6 +16,8 @@
 		DD145FD02BCB0A8B0063D4C7 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD145FCF2BCB0A8B0063D4C7 /* TabBarController.swift */; };
 		DD145FD42BCB0D890063D4C7 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD145FD32BCB0D890063D4C7 /* TabBar.swift */; };
 		DD1E12212C933A2A008B6B3E /* Extensions+Observer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1E12202C933A2A008B6B3E /* Extensions+Observer.swift */; };
+		DD1E12242C983DF8008B6B3E /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1E12232C983DF7008B6B3E /* SearchViewController.swift */; };
+		DD1E12262C983E00008B6B3E /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1E12252C983E00008B6B3E /* SearchView.swift */; };
 		DD2075B42C62A83700611DFD /* SizeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2075B32C62A83700611DFD /* SizeCell.swift */; };
 		DD2075B62C62A8B100611DFD /* Extension+SizeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2075B52C62A8B100611DFD /* Extension+SizeCell.swift */; };
 		DD46C00C2BF3C6E400C90CF3 /* CoffeeInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD46C00B2BF3C6E300C90CF3 /* CoffeeInfo.swift */; };
@@ -54,6 +56,8 @@
 		DD145FCF2BCB0A8B0063D4C7 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		DD145FD32BCB0D890063D4C7 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		DD1E12202C933A2A008B6B3E /* Extensions+Observer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+Observer.swift"; sourceTree = "<group>"; };
+		DD1E12232C983DF7008B6B3E /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		DD1E12252C983E00008B6B3E /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		DD2075B32C62A83700611DFD /* SizeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizeCell.swift; sourceTree = "<group>"; };
 		DD2075B52C62A8B100611DFD /* Extension+SizeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Extension+SizeCell.swift"; path = "../Extension+SizeCell.swift"; sourceTree = "<group>"; };
 		DD46C00B2BF3C6E300C90CF3 /* CoffeeInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeInfo.swift; sourceTree = "<group>"; };
@@ -130,6 +134,7 @@
 		DD145FCB2BCB0A210063D4C7 /* HomeVC */ = {
 			isa = PBXGroup;
 			children = (
+				DD1E12222C983DE4008B6B3E /* Search */,
 				DD1E121E2C93275D008B6B3E /* CoffeeInfo */,
 				DD78E12E2BD05C0F002234EC /* Data */,
 				DD78E12B2BCEDAA9002234EC /* CustomCell */,
@@ -206,6 +211,15 @@
 				DD1E12202C933A2A008B6B3E /* Extensions+Observer.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		DD1E12222C983DE4008B6B3E /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				DD1E12232C983DF7008B6B3E /* SearchViewController.swift */,
+				DD1E12252C983E00008B6B3E /* SearchView.swift */,
+			);
+			path = Search;
 			sourceTree = "<group>";
 		};
 		DD6E6D6A2C8F704A0021CBBE /* Core Data */ = {
@@ -361,9 +375,11 @@
 				DD59687C2BD56802001F9011 /* CoffeeModel.swift in Sources */,
 				DD145FB82BCB08680063D4C7 /* AppDelegate.swift in Sources */,
 				DD78E1222BCB3998002234EC /* HomeView.swift in Sources */,
+				DD1E12262C983E00008B6B3E /* SearchView.swift in Sources */,
 				DD6E6D692C8F6FCB0021CBBE /* Coffee+CoreDataProperties.swift in Sources */,
 				DD59687A2BD566BE001F9011 /* Data.swift in Sources */,
 				DD11F1F32C6D3DCA00E9A5B8 /* LoveCell.swift in Sources */,
+				DD1E12242C983DF8008B6B3E /* SearchViewController.swift in Sources */,
 				DD2075B42C62A83700611DFD /* SizeCell.swift in Sources */,
 				DD2075B62C62A8B100611DFD /* Extension+SizeCell.swift in Sources */,
 				DD145FBA2BCB08690063D4C7 /* SceneDelegate.swift in Sources */,
