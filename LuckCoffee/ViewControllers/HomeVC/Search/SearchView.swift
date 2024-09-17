@@ -9,6 +9,8 @@ import UIKit
 
 final class SearchView: UIView {
     
+    //MARK: - Create UI Models
+    
     lazy var backView: UIView = {
         let view = UIView()
         view.layer.cornerRadius = 15
@@ -25,7 +27,7 @@ final class SearchView: UIView {
         let tf = UITextField()
         tf.borderStyle = .line
         tf.placeholder = "Search Coffee..."
-        tf.textColor = .white
+        tf.textColor = .black
         tf.backgroundColor = .clear
         tf.keyboardType = .default
         tf.layer.cornerRadius = 15
@@ -34,6 +36,21 @@ final class SearchView: UIView {
         
         return tf
     }()
+    
+    lazy var filteredCollectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .vertical
+        
+        let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        cv.register(CoffeeCell.self, forCellWithReuseIdentifier: CoffeeCell.identifire)
+        cv.showsVerticalScrollIndicator = false
+        cv.backgroundColor = .gray
+        cv.translatesAutoresizingMaskIntoConstraints = false
+        
+        return cv
+    }()
+    
+    //MARK: - Init(frame:)
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -46,6 +63,8 @@ final class SearchView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    //MARK: - Setup and Constraints UI
+    
 }
 extension SearchView{
     func setupVC(){
@@ -55,6 +74,7 @@ extension SearchView{
     func setupUI(){
         addSubview(backView)
         backView.addSubview(searchTextField)
+        addSubview(filteredCollectionView)
     }
     
     func constraintsUI(){
@@ -64,10 +84,15 @@ extension SearchView{
             backView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -15),
             backView.heightAnchor.constraint(equalToConstant: 50),
             
-            searchTextField.leadingAnchor.constraint(equalTo: backView.leadingAnchor, constant: 15),
-            searchTextField.trailingAnchor.constraint(equalTo: backView.trailingAnchor, constant: -5),
+            searchTextField.leadingAnchor.constraint(equalTo: backView.leadingAnchor),
+            searchTextField.trailingAnchor.constraint(equalTo: backView.trailingAnchor),
             searchTextField.topAnchor.constraint(equalTo: backView.topAnchor),
             searchTextField.bottomAnchor.constraint(equalTo: backView.bottomAnchor),
+            
+            filteredCollectionView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15),
+            filteredCollectionView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -15),
+            filteredCollectionView.topAnchor.constraint(equalTo: backView.bottomAnchor, constant: 15),
+            filteredCollectionView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
         ])
     }
 }

@@ -41,7 +41,6 @@ final class CoffeeInfoVC: UIViewController{
     
     func setupNavBar() {
         self.navigationItem.title = "Detail"
-
         loveButton = UIBarButtonItem(image: UIImage(systemName: "heart.fill")?.withTintColor(.black, renderingMode: .alwaysTemplate),
                                      style: .plain,
                                      target: self,

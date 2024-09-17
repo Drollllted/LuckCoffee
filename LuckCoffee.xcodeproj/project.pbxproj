@@ -32,6 +32,7 @@
 		DD78E1262BCB3A4F002234EC /* LoveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD78E1252BCB3A4F002234EC /* LoveView.swift */; };
 		DD78E1282BCB3AB3002234EC /* BuyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD78E1272BCB3AB3002234EC /* BuyViewController.swift */; };
 		DD78E12A2BCB3AE1002234EC /* BuyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD78E1292BCB3AE1002234EC /* BuyView.swift */; };
+		DD8495652C99A2170083EB81 /* Extensions+SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8495642C99A2170083EB81 /* Extensions+SearchViewController.swift */; };
 		DD9D07D92BF29C2700932D2C /* CoffeeInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9D07D82BF29C2700932D2C /* CoffeeInfoVC.swift */; };
 		DDF558F92C52F6870002294F /* Sora-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DDF558F02C52F6870002294F /* Sora-Bold.ttf */; };
 		DDF558FA2C52F6870002294F /* Sora-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DDF558F12C52F6870002294F /* Sora-ExtraBold.ttf */; };
@@ -72,6 +73,7 @@
 		DD78E1252BCB3A4F002234EC /* LoveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoveView.swift; sourceTree = "<group>"; };
 		DD78E1272BCB3AB3002234EC /* BuyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyViewController.swift; sourceTree = "<group>"; };
 		DD78E1292BCB3AE1002234EC /* BuyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyView.swift; sourceTree = "<group>"; };
+		DD8495642C99A2170083EB81 /* Extensions+SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+SearchViewController.swift"; sourceTree = "<group>"; };
 		DD9D07D82BF29C2700932D2C /* CoffeeInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeInfoVC.swift; sourceTree = "<group>"; };
 		DDF558F02C52F6870002294F /* Sora-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sora-Bold.ttf"; sourceTree = "<group>"; };
 		DDF558F12C52F6870002294F /* Sora-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sora-ExtraBold.ttf"; sourceTree = "<group>"; };
@@ -201,6 +203,7 @@
 			children = (
 				DD9D07D82BF29C2700932D2C /* CoffeeInfoVC.swift */,
 				DD46C00B2BF3C6E300C90CF3 /* CoffeeInfo.swift */,
+				DD2075B52C62A8B100611DFD /* Extension+SizeCell.swift */,
 			);
 			path = CoffeeInfo;
 			sourceTree = "<group>";
@@ -218,6 +221,7 @@
 			children = (
 				DD1E12232C983DF7008B6B3E /* SearchViewController.swift */,
 				DD1E12252C983E00008B6B3E /* SearchView.swift */,
+				DD8495642C99A2170083EB81 /* Extensions+SearchViewController.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -244,7 +248,6 @@
 			children = (
 				DD59687D2BE00CBA001F9011 /* CoffeeCell.swift */,
 				DD2075B32C62A83700611DFD /* SizeCell.swift */,
-				DD2075B52C62A8B100611DFD /* Extension+SizeCell.swift */,
 			);
 			path = CustomCell;
 			sourceTree = "<group>";
@@ -368,6 +371,7 @@
 				DD78E1282BCB3AB3002234EC /* BuyViewController.swift in Sources */,
 				DD1E12212C933A2A008B6B3E /* Extensions+Observer.swift in Sources */,
 				DD6E6D652C8F6C9C0021CBBE /* CoffeeCoreData.xcdatamodeld in Sources */,
+				DD8495652C99A2170083EB81 /* Extensions+SearchViewController.swift in Sources */,
 				DD59687E2BE00CBA001F9011 /* CoffeeCell.swift in Sources */,
 				DD6E6D6D2C8F70690021CBBE /* CoreDataManager.swift in Sources */,
 				DD9D07D92BF29C2700932D2C /* CoffeeInfoVC.swift in Sources */,
@@ -528,7 +532,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = Z5LFJ3Z2HF;
+				DEVELOPMENT_TEAM = Z6S4N389RT;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LuckCoffee/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Luck Coffee";
@@ -559,7 +563,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = Z5LFJ3Z2HF;
+				DEVELOPMENT_TEAM = Z6S4N389RT;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LuckCoffee/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Luck Coffee";
