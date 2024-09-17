@@ -41,7 +41,7 @@ final class CoffeeInfoVC: UIViewController{
     
     func setupNavBar() {
         self.navigationItem.title = "Detail"
-        loveButton = UIBarButtonItem(image: UIImage(systemName: "heart.fill")?.withTintColor(.black, renderingMode: .alwaysTemplate),
+        loveButton = UIBarButtonItem(image: UIImage(systemName: "heart")?.withTintColor(UIColor.black, renderingMode: .alwaysOriginal),
                                      style: .plain,
                                      target: self,
                                      action: #selector(didTapHeart))
@@ -83,15 +83,16 @@ final class CoffeeInfoVC: UIViewController{
         }
         do{
             if isSelected {
-                loveButton.tintColor = .black
                 coreDataManaged.deleteCoffees(coffeeName: nameCoffee)
                 print("Coffee removed from favorites")
             }else{
-                loveButton.tintColor = UIColor(named: "LikedColor")
                 coreDataManaged.addToFavorites(coffee: coffeeModel)
                 print("SucceessFully")
             }
             isSelected.toggle()
+            
+            loveButton.image = isSelected ? UIImage(systemName: "heart.fill")?.withTintColor(UIColor(resource: .liked), renderingMode: .alwaysOriginal) : UIImage(systemName: "heart")?.withTintColor(UIColor.black, renderingMode: .alwaysOriginal)
+            
         }
         NotificationCenter.default.post(name: .getUpdates, object: nil)
         

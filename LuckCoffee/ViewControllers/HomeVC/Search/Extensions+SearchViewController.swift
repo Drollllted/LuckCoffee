@@ -32,7 +32,7 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
         vc.coffeeInfo.imageCoffeeInfo.image = UIImage(named: coffeeModel.imageCoffee ?? "CoffeeImage")
         vc.coffeeInfo.namedCoffeeInfo.text = coffeeModel.nameCoffee
         vc.coffeeInfo.ingredientsCoffee.text = coffeeModel.coffeeIngredients
-        vc.coffeeInfo.ratingButton.titleLabel?.text = String(coffeeModel.ratingCoffee)
+        vc.coffeeInfo.ratingLabel.text = String(coffeeModel.ratingCoffee)
         vc.coffeeInfo.discriptionLabel.text = coffeeModel.coffeeDiscriprions
         self.navigationController?.pushViewController(vc, animated: true)
     }

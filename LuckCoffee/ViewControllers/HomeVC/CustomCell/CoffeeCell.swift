@@ -8,7 +8,9 @@
 import UIKit
 
 final class CoffeeCell: UICollectionViewCell{
+    
     //MARK: - Properties
+    
     static let identifire = "identifire"
     var coffeeModel: CoffeeModel!
     

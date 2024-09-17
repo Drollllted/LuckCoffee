@@ -9,10 +9,13 @@ import UIKit
 
 final class CoffeeInfo: UIView {
     
+    //MARK: - Properties
+    
     var coffeeInfo: CoffeeInfo!
     private let anchor: CGFloat = 20
     private var isSelected: Bool = false
     
+    //MARK: - UI Models
     
     lazy var mainView: UIView = {
         let view = UIView()
@@ -67,17 +70,51 @@ final class CoffeeInfo: UIView {
         return label
     }()
     
-    lazy var ratingButton: UIButton = {
+    lazy var clearButton: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(systemName: "star.fill"), for: .normal)
-        button.titleLabel?.textColor = .black
-        button.titleLabel?.font = .customFont(type: .SoraMedium, size: 12)
-        button.imageView?.tintColor = isSelected ? UIColor.green : UIColor.gray
-        
+        button.backgroundColor = .clear
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.widthAnchor.constraint(equalToConstant: 100).isActive = true
-        
+        button.addTarget(self, action: #selector(changeColor), for: .touchUpInside)
         return button
+    }()
+    
+    @objc private func changeColor() {
+        print("23123")
+        starImage.image = isSelected ? UIImage(systemName: "star.fill")?.withTintColor(UIColor(resource: .liked), renderingMode: .alwaysOriginal) : UIImage(systemName: "star")?.withTintColor(UIColor.black, renderingMode: .alwaysOriginal)
+    }
+    
+    lazy var starImage: UIImageView = {
+        let image = UIImageView()
+        image.image = UIImage(systemName: "star")
+        image.contentMode = .scaleAspectFit
+        image.tintColor = .black
+        image.translatesAutoresizingMaskIntoConstraints = false
+        return image
+    }()
+    
+    lazy var ratingLabel: UILabel = {
+        let label = UILabel()
+        label.font = .customFont(type: .SoraBold, size: 16)
+        label.textColor = .black
+        
+        label.translatesAutoresizingMaskIntoConstraints = false
+        
+        return label
+    }()
+    
+    lazy var ratingStack: UIStackView = {
+        let stack = UIStackView()
+        stack.axis = .horizontal
+        stack.spacing = 3
+        stack.alignment = .leading
+        stack.distribution = .equalSpacing
+        
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        
+        stack.addArrangedSubview(starImage)
+        stack.addArrangedSubview(ratingLabel)
+        
+        return stack
     }()
     
     private let rectangleView: UIView = {
@@ -129,7 +166,6 @@ final class CoffeeInfo: UIView {
        let label = UILabel()
         label.text = "Size"
         label.font = .customFont(type: .SoraSemiBold, size: 16)
-        
         label.translatesAutoresizingMaskIntoConstraints = false
         
         return label
@@ -157,6 +193,7 @@ final class CoffeeInfo: UIView {
         return view
     }()
     
+    //MARK: - LifeCycles
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -167,6 +204,8 @@ final class CoffeeInfo: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    //MARK: - Setup UI and Constraints
     
     private func setupUI() {
         setMainScrollView()
@@ -251,11 +290,22 @@ final class CoffeeInfo: UIView {
     }
     
     private func setRatingButton() {
-        mainView.addSubview(ratingButton)
+        mainView.addSubview(ratingStack)
+        ratingStack.addSubview(clearButton)
+        
         
         NSLayoutConstraint.activate([
-            ratingButton.topAnchor.constraint(equalTo: ingredientsCoffee.bottomAnchor, constant: 15),
-            ratingButton.leadingAnchor.constraint(equalTo: mainView.leadingAnchor, constant: anchor)
+            starImage.heightAnchor.constraint(equalToConstant: 20),
+            starImage.widthAnchor.constraint(equalToConstant: 20),
+            
+            ratingStack.topAnchor.constraint(equalTo: ingredientsCoffee.bottomAnchor, constant: 15),
+            ratingStack.leadingAnchor.constraint(equalTo: mainView.leadingAnchor, constant: anchor),
+            
+            clearButton.leadingAnchor.constraint(equalTo: ratingStack.leadingAnchor),
+            clearButton.trailingAnchor.constraint(equalTo: ratingStack.trailingAnchor),
+            clearButton.bottomAnchor.constraint(equalTo: ratingStack.bottomAnchor),
+            clearButton.topAnchor.constraint(equalTo: ratingStack.topAnchor),
+            
         ])
     }
     
@@ -263,7 +313,7 @@ final class CoffeeInfo: UIView {
         mainView.addSubview(rectangleView)
         
         NSLayoutConstraint.activate([
-            rectangleView.topAnchor.constraint(equalTo: ratingButton.bottomAnchor, constant: 15),
+            rectangleView.topAnchor.constraint(equalTo: ratingStack.bottomAnchor, constant: 15),
             rectangleView.leadingAnchor.constraint(equalTo: mainView.leadingAnchor, constant: anchor),
             rectangleView.trailingAnchor.constraint(equalTo: mainView.trailingAnchor, constant: -anchor)
         ])
