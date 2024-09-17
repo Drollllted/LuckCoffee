@@ -8,8 +8,11 @@
 import UIKit
 
 final class SearchViewController: UIViewController{
+    
     //MARK: - Properties
-    private var searchView: SearchView!
+    
+    var searchView: SearchView!
+    var filteredCoffee = [CoffeeModel]()
     
     //MARK: - LyfeCycles
     
@@ -22,6 +25,8 @@ final class SearchViewController: UIViewController{
         super.viewDidLoad()
         setupNavBar()
         collectionViewDelegate()
+        
+        filteredCoffee = data
     }
     
     //MARK: - Function not @objc
@@ -35,6 +40,8 @@ final class SearchViewController: UIViewController{
     private func collectionViewDelegate() {
         searchView.filteredCollectionView.delegate = self
         searchView.filteredCollectionView.dataSource = self
+        
+        searchView.searchTextField.delegate = self
     }
     
     //MARK: - @objc functions

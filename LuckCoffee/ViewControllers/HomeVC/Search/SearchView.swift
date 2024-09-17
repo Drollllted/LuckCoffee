@@ -44,7 +44,7 @@ final class SearchView: UIView {
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
         cv.register(CoffeeCell.self, forCellWithReuseIdentifier: CoffeeCell.identifire)
         cv.showsVerticalScrollIndicator = false
-        cv.backgroundColor = .gray
+        
         cv.translatesAutoresizingMaskIntoConstraints = false
         
         return cv
