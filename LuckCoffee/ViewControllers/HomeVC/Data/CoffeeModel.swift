@@ -14,5 +14,6 @@ struct CoffeeModel{
     let coffeeDiscriprions: String
     let coffeePrice: Double
     let ratingCoffee: Double
+    var isLiked: Bool
     
 }

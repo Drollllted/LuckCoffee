@@ -42,6 +42,7 @@ extension Coffee {
             self.coffeeDiscription = coffeeDiscription
             self.coffeePrice = coffeePrice
             self.ratingCoffee = ratingCoffee
+            self.isLiked = false
         }
 }
 

@@ -37,7 +37,7 @@ final class SearchView: UIView {
         return tf
     }()
     
-    lazy var filteredCollectionView: UICollectionView = {
+    var filteredCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
         

@@ -294,7 +294,7 @@ final class HomeView: UIView{
         mainView.addSubview(backgroundBrownView)
         
         NSLayoutConstraint.activate([
-            backgroundBrownView.topAnchor.constraint(equalTo: mainView.topAnchor,constant: -100),
+            backgroundBrownView.topAnchor.constraint(equalTo: mainView.topAnchor,constant: -101),
             backgroundBrownView.leadingAnchor.constraint(equalTo: mainView.leadingAnchor),
             backgroundBrownView.trailingAnchor.constraint(equalTo: mainView.trailingAnchor),
         ])

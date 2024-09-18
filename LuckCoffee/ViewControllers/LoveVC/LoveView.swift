@@ -9,7 +9,7 @@ import UIKit
 
 final class LoveView: UIView {
     
-    lazy var loveCollectionView: UICollectionView = {
+    var loveCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
         

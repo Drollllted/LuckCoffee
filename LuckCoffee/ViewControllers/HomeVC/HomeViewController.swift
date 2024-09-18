@@ -67,6 +67,9 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
         vc.coffeeInfo.ingredientsCoffee.text = coffeeModel.coffeeIngredients
         vc.coffeeInfo.ratingLabel.text = String(coffeeModel.ratingCoffee)
         vc.coffeeInfo.discriptionLabel.text = coffeeModel.coffeeDiscriprions
+        vc.clouserIsSelected = { model in
+            data[indexPath.item] = model
+        }
         self.navigationController?.pushViewController(vc, animated: true)
     }
     

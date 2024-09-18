@@ -39,7 +39,7 @@ final class CoreDataManager: NSObject {
         newCoffee.coffeeDiscription = coffee.coffeeDiscriprions
         newCoffee.ratingCoffee = coffee.ratingCoffee
         newCoffee.imageCoffee = coffee.imageCoffee
-        newCoffee.isLiked = false
+        newCoffee.isLiked = coffee.isLiked
         
         do{
             try! context.save()
@@ -56,13 +56,7 @@ final class CoreDataManager: NSObject {
             return coffee
         }
     }
-    
-    func updateFavoriteCoffee() {
-        do{
-            let request = Coffee.fetchRequest() as NSFetchRequest<Coffee>
-        }
-    }
-    
+
     //MARK: - Update Like Status
     
     func updateLikeStatus(for coffee: Coffee, isLiked: Bool) -> Bool {
@@ -90,6 +84,4 @@ final class CoreDataManager: NSObject {
             
         }
     }
-    
-    
 }

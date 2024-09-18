@@ -14,6 +14,7 @@ final class CoffeeInfoVC: UIViewController{
     var detailModel: CoffeeModel?
     private var coreDataManaged = CoreDataManager.shared
     private var loveButton: UIBarButtonItem!
+    var clouserIsSelected: ((CoffeeModel) -> Void)?
     
     let sizeMenu = ["S", "M", "L"]
     
@@ -50,6 +51,8 @@ final class CoffeeInfoVC: UIViewController{
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font : UIFont(name: "Sora-Bold", size: 18)!]
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "arrow.left")?.withTintColor(.gray, renderingMode: .alwaysOriginal), style: .done, target: self, action: #selector(backButtonAction))
         
+        guard isSelected == detailModel?.isLiked else {return}
+        
         coffeeInfo.readMoreButton.addTarget(self, action: #selector(didTapReadMore), for: .touchUpInside)
     }
     
@@ -77,16 +80,22 @@ final class CoffeeInfoVC: UIViewController{
     
     func addOrDelete() {
         guard let nameCoffee = detailModel?.nameCoffee,
-              let coffeeModel = detailModel else {
+              var coffeeModel = detailModel else {
             print("Guard failed: coffeeModel or nameCoffee is nil")
             return
         }
+        
+        print(nameCoffee)
         do{
             if isSelected {
                 coreDataManaged.deleteCoffees(coffeeName: nameCoffee)
+                coffeeModel.isLiked = false
+                clouserIsSelected?(coffeeModel)
                 print("Coffee removed from favorites")
             }else{
                 coreDataManaged.addToFavorites(coffee: coffeeModel)
+                coffeeModel.isLiked = true
+                clouserIsSelected?(coffeeModel)
                 print("SucceessFully")
             }
             isSelected.toggle()
@@ -94,8 +103,8 @@ final class CoffeeInfoVC: UIViewController{
             loveButton.image = isSelected ? UIImage(systemName: "heart.fill")?.withTintColor(UIColor(resource: .liked), renderingMode: .alwaysOriginal) : UIImage(systemName: "heart")?.withTintColor(UIColor.black, renderingMode: .alwaysOriginal)
             
         }
-        NotificationCenter.default.post(name: .getUpdates, object: nil)
         
+        NotificationCenter.default.post(name: .getUpdates, object: nil)
         print("Is selected: \(isSelected)")
         print("Current favorites count: \(CoreDataManager.shared.coffee.count)")
     }
