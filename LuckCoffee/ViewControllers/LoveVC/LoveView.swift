@@ -14,8 +14,8 @@ final class LoveView: UIView {
         layout.scrollDirection = .vertical
         
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        cv.register(LoveCell.self
-                    , forCellWithReuseIdentifier: LoveCell.id)
+        cv.register(CoffeeCell.self
+                    , forCellWithReuseIdentifier: CoffeeCell.identifire)
         cv.translatesAutoresizingMaskIntoConstraints = false
         
         return cv

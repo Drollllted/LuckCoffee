@@ -72,13 +72,15 @@ extension LoveViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: LoveCell.id, for: indexPath) as? LoveCell else {fatalError("Troubles troubles")}
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CoffeeCell.identifire, for: indexPath) as? CoffeeCell else {fatalError("Troubles troubles")}
         
         let coffee = favoritesCoffee[indexPath.item]
         
-        cell.nameCoffee.text = coffee.nameCoffee
-        cell.coffeeIngredient.text = coffee.coffeeIngredients
-        cell.imageCoffee.image = UIImage(named: coffee.imageCoffee ?? "")
+        cell.nameCoffeeLabel.text = coffee.nameCoffee
+        cell.ingredientsCoffeeLabel.text = coffee.coffeeIngredients
+        cell.imageCoffeeCell.image = UIImage(named: coffee.imageCoffee ?? "")
+        
+        cell.priceCoffeeLabel.text = String(coffee.coffeePrice) + "$"
         
         return cell
     }
@@ -104,6 +106,10 @@ extension LoveViewController: UICollectionViewDelegate, UICollectionViewDataSour
 }
 extension LoveViewController: UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: UIScreen.main.bounds.width, height: 150)
+        return CGSize(width: 170, height: 250)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 7, left: 20, bottom: 7, right: 20)
     }
 }

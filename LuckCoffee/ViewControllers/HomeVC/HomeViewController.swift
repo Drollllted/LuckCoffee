@@ -76,17 +76,20 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
 }
 extension HomeViewController: UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        let width = collectionView.bounds.width
+        
+        // Вычисляем ширину одной ячейки с учетом отступов
+        let cellWidth = (width - 14) / 2 // 14 = 7 + 7 (отступы между ячейками)
+        
+        // Сохраняем пропорцию высоты к ширине (240/170)
+        let aspectRatio: CGFloat = 240 / 170
+        let cellHeight = cellWidth * aspectRatio
+        
         return CGSize(width: 170, height: 240)
     }
-    //Vertical
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 7
-    }
-    
-    //Horizontal
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 7
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 7, left: 20, bottom: 7, right: 20)
     }
 }

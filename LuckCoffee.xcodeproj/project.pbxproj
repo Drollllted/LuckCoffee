@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		DD11F1F32C6D3DCA00E9A5B8 /* LoveCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD11F1F22C6D3DCA00E9A5B8 /* LoveCell.swift */; };
+		DD11F1F32C6D3DCA00E9A5B8 /* BuyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD11F1F22C6D3DCA00E9A5B8 /* BuyCell.swift */; };
 		DD145FB82BCB08680063D4C7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD145FB72BCB08680063D4C7 /* AppDelegate.swift */; };
 		DD145FBA2BCB08690063D4C7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD145FB92BCB08690063D4C7 /* SceneDelegate.swift */; };
 		DD145FBC2BCB08690063D4C7 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD145FBB2BCB08690063D4C7 /* HomeViewController.swift */; };
@@ -46,7 +46,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		DD11F1F22C6D3DCA00E9A5B8 /* LoveCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoveCell.swift; sourceTree = "<group>"; };
+		DD11F1F22C6D3DCA00E9A5B8 /* BuyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyCell.swift; sourceTree = "<group>"; };
 		DD145FB42BCB08680063D4C7 /* LuckCoffee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LuckCoffee.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD145FB72BCB08680063D4C7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DD145FB92BCB08690063D4C7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -100,7 +100,7 @@
 		DD11F1F12C6D3DAC00E9A5B8 /* CustomCell */ = {
 			isa = PBXGroup;
 			children = (
-				DD11F1F22C6D3DCA00E9A5B8 /* LoveCell.swift */,
+				DD11F1F22C6D3DCA00E9A5B8 /* BuyCell.swift */,
 			);
 			path = CustomCell;
 			sourceTree = "<group>";
@@ -149,7 +149,6 @@
 		DD145FCC2BCB0A2F0063D4C7 /* LoveVC */ = {
 			isa = PBXGroup;
 			children = (
-				DD11F1F12C6D3DAC00E9A5B8 /* CustomCell */,
 				DD78E1232BCB3A46002234EC /* LoveViewController.swift */,
 				DD78E1252BCB3A4F002234EC /* LoveView.swift */,
 			);
@@ -159,6 +158,7 @@
 		DD145FCD2BCB0A390063D4C7 /* BuyVC */ = {
 			isa = PBXGroup;
 			children = (
+				DD11F1F12C6D3DAC00E9A5B8 /* CustomCell */,
 				DD78E1272BCB3AB3002234EC /* BuyViewController.swift */,
 				DD78E1292BCB3AE1002234EC /* BuyView.swift */,
 			);
@@ -382,7 +382,7 @@
 				DD1E12262C983E00008B6B3E /* SearchView.swift in Sources */,
 				DD6E6D692C8F6FCB0021CBBE /* Coffee+CoreDataProperties.swift in Sources */,
 				DD59687A2BD566BE001F9011 /* Data.swift in Sources */,
-				DD11F1F32C6D3DCA00E9A5B8 /* LoveCell.swift in Sources */,
+				DD11F1F32C6D3DCA00E9A5B8 /* BuyCell.swift in Sources */,
 				DD1E12242C983DF8008B6B3E /* SearchViewController.swift in Sources */,
 				DD2075B42C62A83700611DFD /* SizeCell.swift in Sources */,
 				DD2075B62C62A8B100611DFD /* Extension+SizeCell.swift in Sources */,

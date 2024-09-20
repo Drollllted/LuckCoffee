@@ -399,9 +399,9 @@ final class HomeView: UIView{
         mainView.addSubview(coffeeCollectionView)
         
         NSLayoutConstraint.activate([
-            coffeeCollectionView.topAnchor.constraint(equalTo: scrollHorizontalMenu.bottomAnchor, constant: 50),
-            coffeeCollectionView.leadingAnchor.constraint(equalTo: mainView.leadingAnchor, constant: 20),
-            coffeeCollectionView.trailingAnchor.constraint(equalTo: mainView.trailingAnchor, constant: -20),
+            coffeeCollectionView.topAnchor.constraint(equalTo: scrollHorizontalMenu.bottomAnchor, constant: 20),
+            coffeeCollectionView.leadingAnchor.constraint(equalTo: mainView.leadingAnchor),
+            coffeeCollectionView.trailingAnchor.constraint(equalTo: mainView.trailingAnchor),
             coffeeCollectionView.bottomAnchor.constraint(equalTo: mainView.bottomAnchor)
         
         ])

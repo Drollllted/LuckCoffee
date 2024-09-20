@@ -9,6 +9,8 @@ import UIKit
 
 final class BuyView: UIView{
     
+    //MARK: - Create UI-Models
+    
     lazy var shopLabel: UILabel = {
         let label = UILabel()
         label.text = "Coffee shop Address"
@@ -45,7 +47,7 @@ final class BuyView: UIView{
     lazy var buttonStack: UIStackView = {
         let stack = UIStackView()
         stack.axis = .horizontal
-        stack.spacing = 10
+        stack.spacing = 30
         stack.alignment = .leading
         
         stack.translatesAutoresizingMaskIntoConstraints = false
@@ -58,6 +60,7 @@ final class BuyView: UIView{
             $0.layer.cornerRadius = 15
             $0.layer.borderColor = UIColor.black.cgColor
             $0.layer.borderWidth = 1
+            $0.titleLabel?.textAlignment = .center
             $0.translatesAutoresizingMaskIntoConstraints = false
             
             return $0
@@ -98,6 +101,9 @@ final class BuyView: UIView{
             return stack
         }()
         
+//        let fontName = UIFont.customFont(type: .SoraSemiBold, size: 16)
+//        let categoriesAttributes = [NSAttributedString.Key.font: fontName as Any]
+        
         lazy var clearButton: UIButton = {
             let button = UIButton()
             button.backgroundColor = .clear
@@ -111,10 +117,11 @@ final class BuyView: UIView{
         stackNameAndIcon.addSubview(clearButton)
         
         NSLayoutConstraint.activate([
-            viewButton.heightAnchor.constraint(equalToConstant: 20),
-            viewButton.widthAnchor.constraint(equalToConstant: 100),
+            viewButton.heightAnchor.constraint(equalToConstant: 30),
+            viewButton.widthAnchor.constraint(equalToConstant: 120),
             
             stackNameAndIcon.centerYAnchor.constraint(equalTo: viewButton.centerYAnchor),
+            stackNameAndIcon.centerXAnchor.constraint(equalTo: viewButton.centerXAnchor),
             
             clearButton.leadingAnchor.constraint(equalTo: stackNameAndIcon.leadingAnchor),
             clearButton.trailingAnchor.constraint(equalTo: stackNameAndIcon.trailingAnchor),
@@ -135,6 +142,43 @@ final class BuyView: UIView{
         buttonStack.addArrangedSubview(button2)
     }
     
+    private let rectangleView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .systemGray4
+        view.layer.cornerRadius = 10
+        
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.heightAnchor.constraint(equalToConstant: 1).isActive = true
+        
+        return view
+    }()
+    
+    private let yourOrderLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Your's Order:"
+        label.font = .customFont(type: .SoraBold, size: 20)
+        label.textColor = .black
+        label.textAlignment = .left
+        
+        label.translatesAutoresizingMaskIntoConstraints = false
+        
+        return label
+    }()
+    
+    //MARK: - Order Collection View
+    
+    var orderCollectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .vertical
+        
+        let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        cv.register(BuyCell.self, forCellWithReuseIdentifier: BuyCell.id)
+        cv.showsVerticalScrollIndicator = false
+        cv.translatesAutoresizingMaskIntoConstraints = false
+        return cv
+    }()
+    
+    //MARK: - LyfeCycles
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -149,13 +193,17 @@ final class BuyView: UIView{
     
     
 }
+//MARK: - Setup UI
+
 extension BuyView{
     func setupUI(){
         addSubview(shopLabel)
         addSubview(cityLabel)
         addSubview(streetLabel)
         addSubview(buttonStack)
-        
+        addSubview(rectangleView)
+        addSubview(yourOrderLabel)
+        addSubview(orderCollectionView)
         createButtons()
     }
     
@@ -165,13 +213,26 @@ extension BuyView{
             shopLabel.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 15),
             
             cityLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15),
-            cityLabel.topAnchor.constraint(equalTo: shopLabel.bottomAnchor, constant: 15),
+            cityLabel.topAnchor.constraint(equalTo: shopLabel.bottomAnchor, constant: 10),
             
             streetLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15),
             streetLabel.topAnchor.constraint(equalTo: cityLabel.bottomAnchor, constant: 10),
             
-            buttonStack.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15),
+            buttonStack.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 25),
             buttonStack.topAnchor.constraint(equalTo: streetLabel.bottomAnchor, constant: 10),
+            
+            rectangleView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 5),
+            rectangleView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -5),
+            rectangleView.topAnchor.constraint(equalTo: buttonStack.bottomAnchor, constant: 20),
+            rectangleView.heightAnchor.constraint(equalToConstant: 1),
+            
+            yourOrderLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15),
+            yourOrderLabel.topAnchor.constraint(equalTo: rectangleView.bottomAnchor, constant: 15),
+            
+            orderCollectionView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            orderCollectionView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            orderCollectionView.topAnchor.constraint(equalTo: yourOrderLabel.bottomAnchor, constant: 10),
+            orderCollectionView.heightAnchor.constraint(equalToConstant: 200),
         ])
     }
 }
