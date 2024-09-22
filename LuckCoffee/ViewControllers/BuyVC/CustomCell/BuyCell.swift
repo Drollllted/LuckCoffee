@@ -136,6 +136,8 @@ final class BuyCell: UICollectionViewCell {
         countLabel.text = "\(countCoffee)"
     }
     
+    //MARK: - LifeCycles
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         mainSetup()
@@ -148,14 +150,15 @@ final class BuyCell: UICollectionViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+ 
+    //MARK: - Setup UI
 }
 extension BuyCell {
     func mainSetup() {
         backgroundColor = .systemBackground
         layer.cornerRadius = 15
         layer.borderWidth = 1
-        layer.borderColor = UIColor.systemBrown.cgColor
+        layer.borderColor = UIColor.clear.cgColor
     }
     
     func setupUI(){

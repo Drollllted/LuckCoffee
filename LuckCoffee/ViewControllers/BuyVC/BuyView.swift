@@ -178,6 +178,92 @@ final class BuyView: UIView{
         return cv
     }()
     
+    lazy var deviderView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .systemGray4
+        view.layer.cornerRadius = 15
+        
+        view.translatesAutoresizingMaskIntoConstraints = false
+        
+        return view
+    }()
+    
+    //MARK: - Discount Button
+    
+    lazy var discountView: UIView = {
+        let view = UIView()
+        view.layer.cornerRadius = 15
+        view.layer.borderWidth = 1
+        view.layer.borderColor = UIColor.systemGray5.cgColor
+        
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    lazy var saleIcon: UIImageView = {
+        let image = UIImageView()
+        image.image = .sale
+        image.tintColor = .white
+        image.contentMode = .scaleAspectFit
+        
+        image.translatesAutoresizingMaskIntoConstraints = false
+        image.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        image.widthAnchor.constraint(equalToConstant: 20).isActive = true
+        
+        return image
+    }()
+    
+    lazy var discountLabel: UILabel = {
+        let label = UILabel()
+        label.text = "1 Discount is Applies"
+        label.font = .customFont(type: .SoraSemiBold, size: 14)
+        label.textColor = .black
+        
+        label.translatesAutoresizingMaskIntoConstraints = false
+        
+        return label
+    }()
+    
+    lazy var stackSale: UIStackView = {
+        let stack = UIStackView()
+        stack.axis = .horizontal
+        stack.spacing = 15
+        stack.alignment = .center
+        
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        stack.addArrangedSubview(saleIcon)
+        stack.addArrangedSubview(discountLabel)
+        
+        return stack
+    }()
+    
+    lazy var chevronRightImage: UIImageView = {
+        let image = UIImageView()
+        image.image = UIImage(systemName: "chevron.right")
+        image.tintColor = .black
+        image.contentMode = .scaleAspectFit
+        
+        image.translatesAutoresizingMaskIntoConstraints = false
+        image.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        image.widthAnchor.constraint(equalToConstant: 20).isActive = true
+        
+        return image
+    }()
+    
+    lazy var buttonClear: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.backgroundColor = .clear
+        button.addTarget(self, action: #selector(getDiscount), for: .touchUpInside)
+        return button
+    }()
+    
+    @objc private func getDiscount() {
+        print("231")
+    }
+    
+    //MARK: - 
+    
     //MARK: - LyfeCycles
     
     override init(frame: CGRect) {
@@ -204,7 +290,14 @@ extension BuyView{
         addSubview(rectangleView)
         addSubview(yourOrderLabel)
         addSubview(orderCollectionView)
+        addSubview(deviderView)
+        addSubview(discountView)
+        
+        discountView.addSubview(stackSale)
+        discountView.addSubview(chevronRightImage)
+        discountView.addSubview(buttonClear)
         createButtons()
+        
     }
     
     func constraintsUI(){
@@ -233,6 +326,27 @@ extension BuyView{
             orderCollectionView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             orderCollectionView.topAnchor.constraint(equalTo: yourOrderLabel.bottomAnchor, constant: 10),
             orderCollectionView.heightAnchor.constraint(equalToConstant: 200),
+            
+            deviderView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 5),
+            deviderView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -5),
+            deviderView.topAnchor.constraint(equalTo: orderCollectionView.bottomAnchor, constant: 20),
+            deviderView.heightAnchor.constraint(equalToConstant: 1),
+            
+            discountView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15),
+            discountView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -15),
+            discountView.topAnchor.constraint(equalTo: deviderView.bottomAnchor, constant: 15),
+            discountView.heightAnchor.constraint(equalToConstant: 58),
+            
+            stackSale.leadingAnchor.constraint(equalTo: discountView.leadingAnchor, constant: 15),
+            stackSale.centerYAnchor.constraint(equalTo: discountView.centerYAnchor),
+            
+            chevronRightImage.trailingAnchor.constraint(equalTo: discountView.trailingAnchor, constant: -15),
+            chevronRightImage.centerYAnchor.constraint(equalTo: discountView.centerYAnchor),
+            
+            buttonClear.leadingAnchor.constraint(equalTo: discountView.leadingAnchor),
+            buttonClear.trailingAnchor.constraint(equalTo: discountView.trailingAnchor),
+            buttonClear.bottomAnchor.constraint(equalTo: discountView.bottomAnchor),
+            buttonClear.topAnchor.constraint(equalTo: discountView.topAnchor),
         ])
     }
 }
