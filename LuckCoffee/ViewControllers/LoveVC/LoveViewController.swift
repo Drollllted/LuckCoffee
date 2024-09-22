@@ -86,21 +86,44 @@ extension LoveViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        delete(at: indexPath)
+        alert(at: indexPath)
     }
     
     //MARK: - function in collectionView button
     
-    func delete(at indexPath: IndexPath) {
+    private func alert(at indexPath: IndexPath) {
         guard let coffeeName = favoritesCoffee[indexPath.item].nameCoffee else {return}
-        
-        do {
-            coreDataManaged.deleteCoffees(coffeeName: coffeeName)
-            favoritesCoffee.remove(at: indexPath.item)
-            loveView.loveCollectionView.performBatchUpdates({
-                loveView.loveCollectionView.deleteItems(at: [indexPath])
-            }, completion: nil)
+        let alertController = UIAlertController(title: "Action", message: "What do you want to do?", preferredStyle: .actionSheet)
+        let deleteItem = UIAlertAction(title: "Delete", style: .destructive) { _ in
+            do {
+                self.coreDataManaged.deleteCoffees(coffeeName: coffeeName)
+                self.favoritesCoffee.remove(at: indexPath.item)
+                self.loveView.loveCollectionView.performBatchUpdates({
+                    self.loveView.loveCollectionView.deleteItems(at: [indexPath])
+                }, completion: nil)
+            }
         }
+        
+        let infoItem = UIAlertAction(title: "Infomation", style: .default) { _ in
+            let vc = CoffeeInfoVC()
+            let coffeeModel = self.favoritesCoffee[indexPath.item]
+            vc.coffeeInfo.imageCoffeeInfo.image = UIImage(named: coffeeModel.imageCoffee ?? "CoffeeImage")
+            vc.coffeeInfo.namedCoffeeInfo.text = coffeeModel.nameCoffee
+            vc.coffeeInfo.ingredientsCoffee.text = coffeeModel.coffeeIngredients
+            vc.coffeeInfo.ratingLabel.text = String(coffeeModel.ratingCoffee)
+            vc.coffeeInfo.discriptionLabel.text = coffeeModel.coffeeDiscription
+            
+            self.navigationController?.pushViewController(vc, animated: true)
+            
+        }
+        
+        let cancelItem = UIAlertAction(title: "Cancel", style: .cancel)
+        
+        alertController.addAction(infoItem)
+        alertController.addAction(deleteItem)
+        alertController.addAction(cancelItem)
+        
+        self.present(alertController, animated: true)
     }
     
 }

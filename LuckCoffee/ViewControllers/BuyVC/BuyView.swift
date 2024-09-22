@@ -262,7 +262,59 @@ final class BuyView: UIView{
         print("231")
     }
     
-    //MARK: - 
+    //MARK: - Payment coffee
+    
+    lazy var paymentSummaryLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Payment Summary"
+        label.font = .customFont(type: .SoraSemiBold, size: 16)
+        label.textColor = .black
+        
+        label.translatesAutoresizingMaskIntoConstraints = false
+        
+        return label
+    }()
+    
+    private func buyingcoffeeStack(title: String, pay: String) -> UIStackView {
+        
+        lazy var titleCount: UILabel = {
+            let label = UILabel()
+            label.text = title
+            label.font = .customFont(type: .SoraRegular, size: 14)
+            label.textColor = .black
+            
+            label.translatesAutoresizingMaskIntoConstraints = false
+            
+            return label
+        }()
+        
+        lazy var payLabel: UILabel = {
+            let label = UILabel()
+            label.text = "\(pay)$"
+            label.font = .customFont(type: .SoraSemiBold, size: 14)
+            label.textColor = .black
+            
+            label.translatesAutoresizingMaskIntoConstraints = false
+            
+            return label
+        }()
+        
+        lazy var stackInfomation: UIStackView = {
+            let stack = UIStackView()
+            stack.axis = .horizontal
+            stack.alignment = .center
+            stack.distribution = .fill
+            
+            stack.translatesAutoresizingMaskIntoConstraints = false
+            stack.addArrangedSubview(titleCount)
+            stack.addArrangedSubview(payLabel)
+            
+            return stack
+        }()
+        
+        return stackInfomation
+        
+    }
     
     //MARK: - LyfeCycles
     
@@ -296,6 +348,9 @@ extension BuyView{
         discountView.addSubview(stackSale)
         discountView.addSubview(chevronRightImage)
         discountView.addSubview(buttonClear)
+        
+        addSubview(paymentSummaryLabel)
+        
         createButtons()
         
     }
@@ -325,7 +380,7 @@ extension BuyView{
             orderCollectionView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             orderCollectionView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             orderCollectionView.topAnchor.constraint(equalTo: yourOrderLabel.bottomAnchor, constant: 10),
-            orderCollectionView.heightAnchor.constraint(equalToConstant: 200),
+            orderCollectionView.heightAnchor.constraint(equalToConstant: 140),
             
             deviderView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 5),
             deviderView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -5),
@@ -347,6 +402,9 @@ extension BuyView{
             buttonClear.trailingAnchor.constraint(equalTo: discountView.trailingAnchor),
             buttonClear.bottomAnchor.constraint(equalTo: discountView.bottomAnchor),
             buttonClear.topAnchor.constraint(equalTo: discountView.topAnchor),
+            
+            paymentSummaryLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15),
+            paymentSummaryLabel.topAnchor.constraint(equalTo: discountView.bottomAnchor, constant: 15),
         ])
     }
 }
