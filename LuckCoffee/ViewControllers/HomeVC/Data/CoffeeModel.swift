@@ -7,7 +7,8 @@
 
 import UIKit
 
-struct CoffeeModel{
+struct CoffeeModel: Identifiable{
+    let id: UUID
     let nameCoffee: String
     let imageCoffee: String?
     let coffeeIngredients: String
@@ -16,4 +17,14 @@ struct CoffeeModel{
     let ratingCoffee: Double
     var isLiked: Bool
     
+    init(id: UUID = UUID(), nameCoffee: String, imageCoffee: String?, coffeeIngredients: String, coffeeDiscriprions: String, coffeePrice: Double, ratingCoffee: Double, isLiked: Bool) {
+        self.id = id
+        self.nameCoffee = nameCoffee
+        self.imageCoffee = imageCoffee
+        self.coffeeIngredients = coffeeIngredients
+        self.coffeeDiscriprions = coffeeDiscriprions
+        self.coffeePrice = coffeePrice
+        self.ratingCoffee = ratingCoffee
+        self.isLiked = isLiked
+    }
 }

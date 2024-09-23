@@ -275,6 +275,17 @@ final class BuyView: UIView{
         return label
     }()
     
+    lazy var stackPaymentCoffee: UIStackView = {
+        let stack = UIStackView()
+        stack.axis = .vertical
+        stack.alignment = .fill
+        stack.spacing = 10
+        
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        
+        return stack
+    }()
+    
     private func buyingcoffeeStack(title: String, pay: String) -> UIStackView {
         
         lazy var titleCount: UILabel = {
@@ -316,6 +327,14 @@ final class BuyView: UIView{
         
     }
     
+    private func getLabels() {
+        let label1 = buyingcoffeeStack(title: "Price: ", pay: "4.23")
+        let label2 = buyingcoffeeStack(title: "Delivery Fee: ", pay: "2.00")
+        
+        stackPaymentCoffee.addArrangedSubview(label1)
+        stackPaymentCoffee.addArrangedSubview(label2)
+    }
+    
     //MARK: - LyfeCycles
     
     override init(frame: CGRect) {
@@ -350,9 +369,10 @@ extension BuyView{
         discountView.addSubview(buttonClear)
         
         addSubview(paymentSummaryLabel)
+        addSubview(stackPaymentCoffee)
         
         createButtons()
-        
+        getLabels()
     }
     
     func constraintsUI(){
@@ -405,6 +425,10 @@ extension BuyView{
             
             paymentSummaryLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15),
             paymentSummaryLabel.topAnchor.constraint(equalTo: discountView.bottomAnchor, constant: 15),
+            
+            stackPaymentCoffee.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15),
+            stackPaymentCoffee.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -15),
+            stackPaymentCoffee.topAnchor.constraint(equalTo: paymentSummaryLabel.bottomAnchor, constant: 15),
         ])
     }
 }

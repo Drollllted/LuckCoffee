@@ -84,7 +84,7 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout{
         
         // Сохраняем пропорцию высоты к ширине (240/170)
         let aspectRatio: CGFloat = 240 / 170
-        let cellHeight = cellWidth * aspectRatio
+     //   let cellHeight = cellWidth * aspectRatio
         
         return CGSize(width: 170, height: 240)
     }

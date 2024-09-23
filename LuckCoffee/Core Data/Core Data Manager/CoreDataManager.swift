@@ -39,11 +39,13 @@ final class CoreDataManager: NSObject {
         newCoffee.coffeeDiscription = coffee.coffeeDiscriprions
         newCoffee.ratingCoffee = coffee.ratingCoffee
         newCoffee.imageCoffee = coffee.imageCoffee
-        newCoffee.isLiked = coffee.isLiked
+        newCoffee.isLiked = true
         
         do{
-            try! context.save()
+            try context.save()
             print("Database successful")
+        } catch {
+            print("Troubles in addToFavorites Function - \(error.localizedDescription)")
         }
     }
     
@@ -52,19 +54,41 @@ final class CoreDataManager: NSObject {
     func fetchFavoritexCoffee() -> [Coffee] {
         do{
             let request = Coffee.fetchRequest() as NSFetchRequest<Coffee>
-            coffee = try! context.fetch(request)
+            coffee = try context.fetch(request)
             return coffee
+        }catch{
+            print("Troubles in fetchFavoritexCoffee Function - \(error.localizedDescription)")
         }
+        return []
     }
 
     //MARK: - Update Like Status
     
-    func updateLikeStatus(for coffee: Coffee, isLiked: Bool) -> Bool {
+    func updateLikeStatus(for coffee: Coffee, isLiked: Bool) -> Bool? {
         coffee.isLiked = isLiked
         do{
-            try! context.save()
+            try context.save()
             return true
+        }catch{
+            print("Troubles in UpdateLikeStatus Function - \(error.localizedDescription)")
         }
+        return nil
+    }
+    
+    func checkIsLiked(coffeeId: UUID) -> Bool? {
+        let fetchRequest = Coffee.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "id == %@", coffeeId as CVarArg)
+        
+        do{
+            let coffes = try context.fetch(fetchRequest)
+            if let exitingCoffee = coffes.first {
+                return exitingCoffee.isLiked
+            }
+        }catch {
+            print("Troubles in checkIsLiked Function - \(error.localizedDescription)")
+        }
+        
+        return nil
     }
     
     //MARK: - Delete Coffee
@@ -81,7 +105,7 @@ final class CoreDataManager: NSObject {
                 print("Coffee is Deleted")
             }
         }catch{
-            
+            print("Troubles in deleteCoffees Function - \(error.localizedDescription)")
         }
     }
 }

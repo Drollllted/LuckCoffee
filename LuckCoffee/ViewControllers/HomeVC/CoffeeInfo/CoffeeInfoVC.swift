@@ -13,7 +13,7 @@ final class CoffeeInfoVC: UIViewController{
     var coffeeInfo: CoffeeInfo!
     var detailModel: CoffeeModel?
     private var coreDataManaged = CoreDataManager.shared
-    private var loveButton: UIBarButtonItem!
+    public var loveButton: UIBarButtonItem!
     var clouserIsSelected: ((CoffeeModel) -> Void)?
     
     let sizeMenu = ["S", "M", "L"]
@@ -52,16 +52,9 @@ final class CoffeeInfoVC: UIViewController{
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "arrow.left")?.withTintColor(.gray, renderingMode: .alwaysOriginal), style: .done, target: self, action: #selector(backButtonAction))
         
         guard isSelected == detailModel?.isLiked else {return}
-        
-        coffeeInfo.readMoreButton.addTarget(self, action: #selector(didTapReadMore), for: .touchUpInside)
     }
     
     //MARK: - Obj-c Method
-    
-    @objc func didTapReadMore() {
-        coffeeInfo.discriptionLabel.numberOfLines = 20
-        coffeeInfo.readMoreButton.isHidden = true
-    }
     
     @objc func didTapHeart() {
         addOrDelete()
@@ -77,6 +70,8 @@ final class CoffeeInfoVC: UIViewController{
         coffeeInfo.collectionViewSize.delegate = self
         coffeeInfo.collectionViewSize.dataSource = self
     }
+    
+    #warning("Отработать нажатие кнопки чтобы кнопка сохраняла свое состояние после нажатия на нее")
     
     func addOrDelete() {
         guard let nameCoffee = detailModel?.nameCoffee,

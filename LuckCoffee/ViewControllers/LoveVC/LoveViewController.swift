@@ -114,7 +114,6 @@ extension LoveViewController: UICollectionViewDelegate, UICollectionViewDataSour
             vc.coffeeInfo.discriptionLabel.text = coffeeModel.coffeeDiscription
             
             self.navigationController?.pushViewController(vc, animated: true)
-            
         }
         
         let cancelItem = UIAlertAction(title: "Cancel", style: .cancel)

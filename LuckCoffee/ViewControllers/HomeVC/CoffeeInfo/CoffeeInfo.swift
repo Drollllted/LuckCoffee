@@ -158,9 +158,14 @@ final class CoffeeInfo: UIView {
         button.setTitleColor(.systemBrown, for: .normal)
         
         button.translatesAutoresizingMaskIntoConstraints = false
-        
+        button.addTarget(self, action: #selector(didTapReadMore), for: .touchUpInside)
         return button
     }()
+    
+    @objc func didTapReadMore() {
+        discriptionLabel.numberOfLines = 20
+        readMoreButton.isHidden = true
+    }
     
     lazy var sizeLabel: UILabel = {
        let label = UILabel()
