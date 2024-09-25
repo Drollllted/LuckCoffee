@@ -10,7 +10,7 @@ import UIKit
 final class HomeViewController: UIViewController {
     
     //MARK: - Properties
-    
+    weak var delegate: BuyViewControllerDelegate?
     private var homeView: HomeView!
     var coffeeModel: CoffeeModel!
     
@@ -55,6 +55,9 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
         cell.nameCoffeeLabel.text = coffeeModel.nameCoffee
         cell.ingredientsCoffeeLabel.text = "\(coffeeModel.coffeeIngredients)"
         cell.priceCoffeeLabel.text = "\(coffeeModel.coffeePrice)$"
+        
+        cell.plusButton.addTarget(self, action: #selector(addToOrderCoffee), for: .touchUpInside)
+        
         return cell
     }
     
@@ -70,22 +73,19 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
         vc.clouserIsSelected = { model in
             data[indexPath.item] = model
         }
+        
         self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    //MARK: Objc func add to OrderCollectionView Coffee
+    
+    @objc func addToOrderCoffee() {
+        
     }
     
 }
 extension HomeViewController: UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        let width = collectionView.bounds.width
-        
-        // Вычисляем ширину одной ячейки с учетом отступов
-        let cellWidth = (width - 14) / 2 // 14 = 7 + 7 (отступы между ячейками)
-        
-        // Сохраняем пропорцию высоты к ширине (240/170)
-        let aspectRatio: CGFloat = 240 / 170
-     //   let cellHeight = cellWidth * aspectRatio
-        
         return CGSize(width: 170, height: 240)
     }
     

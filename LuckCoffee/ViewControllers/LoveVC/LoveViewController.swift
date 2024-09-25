@@ -49,7 +49,6 @@ final class LoveViewController: UIViewController {
     
     private func updateLoveCollection() {
         do{
-            print("123")
             favoritesCoffee = coreDataManaged.fetchFavoritexCoffee()
             loveView.loveCollectionView.reloadData()
         }

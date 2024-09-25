@@ -7,13 +7,16 @@
 
 import UIKit
 
+protocol BuyViewControllerDelegate: AnyObject {
+    func addInOrderCoffee(coffee: CoffeeModel)
+}
+
 final class BuyViewController: UIViewController {
     
     private var buyView: BuyView!
     private var orderCoffee = [CoffeeModel]()
     
     override func loadView() {
-        
         buyView = BuyView()
         view = buyView
     }
@@ -27,7 +30,7 @@ final class BuyViewController: UIViewController {
     
     private func setupNavBar() {
         self.navigationItem.title = "Order"
-        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 18, weight: .bold)]
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 18, weight: .bold), NSAttributedString.Key.foregroundColor : UIColor.black]
     }
     
     private func delegateBuyCollectionView() {
@@ -54,4 +57,16 @@ extension BuyViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: UIScreen.main.bounds.width - 10, height: 80)
     }
+}
+
+
+//MARK: Protocol function
+
+extension BuyViewController: BuyViewControllerDelegate {
+    
+    func addInOrderCoffee(coffee: CoffeeModel) {
+        orderCoffee.append(coffee)
+        self.buyView.orderCollectionView.reloadData()
+    }
+    
 }
