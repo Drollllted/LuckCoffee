@@ -123,6 +123,8 @@ final class BuyCell: UICollectionViewCell {
     @objc private func minusAction() {
         if countCoffee > 1{
             countCoffee -= 1
+        } else if countCoffee == 0 {
+            
         }
         getCountCoffee()
     }

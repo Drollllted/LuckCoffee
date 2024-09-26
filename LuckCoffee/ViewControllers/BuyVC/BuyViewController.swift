@@ -9,6 +9,7 @@ import UIKit
 
 protocol BuyViewControllerDelegate: AnyObject {
     func addInOrderCoffee(coffee: CoffeeModel)
+    func saveInOrderCoffee()
 }
 
 final class BuyViewController: UIViewController {
@@ -66,7 +67,28 @@ extension BuyViewController: BuyViewControllerDelegate {
     
     func addInOrderCoffee(coffee: CoffeeModel) {
         orderCoffee.append(coffee)
+        saveInOrderCoffee()
         self.buyView.orderCollectionView.reloadData()
+    }
+    
+    func saveInOrderCoffee() {
+        do{
+            let jsonEncoder = JSONEncoder()
+            let data = try jsonEncoder.encode(orderCoffee)
+            UserDefaults.standard.set(data, forKey: "orderCoffees")
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+    
+    func loadInOrderCoffee() {
+        guard let savedData = UserDefaults.standard.data(forKey: "orderCoffees") else {return}
+        do{
+            let jsonDecoder = JSONDecoder()
+           // let data = try jsonDecoder.decode([CoffeeModel.self], from: savedData)
+        } catch {
+            print(error.localizedDescription)
+        }
     }
     
 }

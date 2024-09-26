@@ -79,7 +79,14 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
     
     //MARK: Objc func add to OrderCollectionView Coffee
     
-    @objc func addToOrderCoffee() {
+    @objc func addToOrderCoffee(_ sender: UIButton) {
+        guard let coffee = coffeeModel else {return}
+        delegate?.addInOrderCoffee(coffee: coffee)
+    }
+    
+    //MARK: not objc func add to OrderCollectionView Coffee
+    
+    func addCoffeeInOrderCoffee() {
         
     }
     

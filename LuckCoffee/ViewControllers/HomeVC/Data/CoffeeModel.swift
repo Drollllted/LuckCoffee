@@ -7,7 +7,7 @@
 
 import UIKit
 
-struct CoffeeModel: Identifiable{
+struct CoffeeModel: Identifiable, Codable{
     let id: UUID
     let nameCoffee: String
     let imageCoffee: String?
