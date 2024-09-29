@@ -9,9 +9,6 @@ import UIKit
 
 final class HomeView: UIView{
     
-    private let categoriesCoffee: [String] = ["Cappuchino", "Latte", "Mocachino", "Americano", "Other"]
-    
-    
     //MARK: - Create UIModels
     
     private let scrollViewMain: UIScrollView = {

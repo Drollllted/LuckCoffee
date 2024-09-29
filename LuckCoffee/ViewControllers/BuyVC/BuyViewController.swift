@@ -42,11 +42,17 @@ final class BuyViewController: UIViewController {
 
 extension BuyViewController: UICollectionViewDelegate, UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return orderCoffee.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BuyCell.id, for: indexPath) as? BuyCell else {fatalError("Hi-hi")}
+        let order = orderCoffee[indexPath.item]
+        cell.imageCoffee.image = UIImage(named: order.imageCoffee ?? "named")
+        cell.nameCoffee.text = order.nameCoffee
+        cell.coffeeIngredient.text = order.coffeeIngredients
+        
+        
         
         return cell
     }
@@ -82,13 +88,7 @@ extension BuyViewController: BuyViewControllerDelegate {
     }
     
     func loadInOrderCoffee() {
-        guard let savedData = UserDefaults.standard.data(forKey: "orderCoffees") else {return}
-        do{
-            let jsonDecoder = JSONDecoder()
-           // let data = try jsonDecoder.decode([CoffeeModel.self], from: savedData)
-        } catch {
-            print(error.localizedDescription)
-        }
+
     }
     
 }
