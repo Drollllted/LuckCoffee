@@ -75,22 +75,6 @@ final class CoreDataManager: NSObject {
         return nil
     }
     
-    func checkIsLiked(coffeeId: UUID) -> Bool? {
-        let fetchRequest = Coffee.fetchRequest()
-        fetchRequest.predicate = NSPredicate(format: "id == %@", coffeeId as CVarArg)
-        
-        do{
-            let coffes = try context.fetch(fetchRequest)
-            if let exitingCoffee = coffes.first {
-                return exitingCoffee.isLiked
-            }
-        }catch {
-            print("Troubles in checkIsLiked Function - \(error.localizedDescription)")
-        }
-        
-        return nil
-    }
-    
     //MARK: - Delete Coffee
     
     func deleteCoffees(coffeeName: String) {

@@ -9,13 +9,13 @@ import UIKit
 
 protocol BuyViewControllerDelegate: AnyObject {
     func addInOrderCoffee(coffee: CoffeeModel)
-    func saveInOrderCoffee()
 }
 
 final class BuyViewController: UIViewController {
     
     private var buyView: BuyView!
     private var orderCoffee = [CoffeeModel]()
+    weak var delegate: BuyViewControllerDelegate?
     
     override func loadView() {
         buyView = BuyView()
@@ -52,8 +52,6 @@ extension BuyViewController: UICollectionViewDelegate, UICollectionViewDataSourc
         cell.nameCoffee.text = order.nameCoffee
         cell.coffeeIngredient.text = order.coffeeIngredients
         
-        
-        
         return cell
     }
     
@@ -73,22 +71,7 @@ extension BuyViewController: BuyViewControllerDelegate {
     
     func addInOrderCoffee(coffee: CoffeeModel) {
         orderCoffee.append(coffee)
-        saveInOrderCoffee()
+        print("Добавлено кофе \(coffee)")
         self.buyView.orderCollectionView.reloadData()
     }
-    
-    func saveInOrderCoffee() {
-        do{
-            let jsonEncoder = JSONEncoder()
-            let data = try jsonEncoder.encode(orderCoffee)
-            UserDefaults.standard.set(data, forKey: "orderCoffees")
-        } catch {
-            print(error.localizedDescription)
-        }
-    }
-    
-    func loadInOrderCoffee() {
-
-    }
-    
 }

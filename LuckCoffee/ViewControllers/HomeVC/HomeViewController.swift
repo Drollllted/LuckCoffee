@@ -7,12 +7,13 @@
 
 import UIKit
 
-final class HomeViewController: UIViewController {
+final class HomeViewController: UIViewController{
     
     //MARK: - Properties
-    weak var delegate: BuyViewControllerDelegate?
     private var homeView: HomeView!
     var coffeeModel: CoffeeModel!
+    let buyViewContoller = BuyViewController()
+    weak var delegate: BuyViewControllerDelegate?
     
     //MARK: - LifeCycles
     
@@ -81,14 +82,9 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
     
     @objc func addToOrderCoffee(_ sender: UIButton) {
         print("123123")
-        guard let coffee = coffeeModel else {return}
+        guard let coffee = data.first else {return}
+        print(coffee)
         delegate?.addInOrderCoffee(coffee: coffee)
-    }
-    
-    //MARK: not objc func add to OrderCollectionView Coffee
-    
-    func addCoffeeInOrderCoffee() {
-        
     }
     
 }

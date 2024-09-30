@@ -34,6 +34,9 @@
 		DD78E12A2BCB3AE1002234EC /* BuyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD78E1292BCB3AE1002234EC /* BuyView.swift */; };
 		DD8495652C99A2170083EB81 /* Extensions+SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8495642C99A2170083EB81 /* Extensions+SearchViewController.swift */; };
 		DD9D07D92BF29C2700932D2C /* CoffeeInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9D07D82BF29C2700932D2C /* CoffeeInfoVC.swift */; };
+		DDA299A52CAAA9C40046655F /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = DDA299A42CAAA9C40046655F /* SQLite */; };
+		DDA299A82CAAAC2C0046655F /* SQLiteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA299A72CAAAC2C0046655F /* SQLiteManager.swift */; };
+		DDA299AA2CAAAD0A0046655F /* CoffeeOrder.db in Resources */ = {isa = PBXBuildFile; fileRef = DDA299A92CAAAD0A0046655F /* CoffeeOrder.db */; };
 		DDF558F92C52F6870002294F /* Sora-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DDF558F02C52F6870002294F /* Sora-Bold.ttf */; };
 		DDF558FA2C52F6870002294F /* Sora-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DDF558F12C52F6870002294F /* Sora-ExtraBold.ttf */; };
 		DDF558FB2C52F6870002294F /* Sora-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DDF558F22C52F6870002294F /* Sora-ExtraLight.ttf */; };
@@ -75,6 +78,8 @@
 		DD78E1292BCB3AE1002234EC /* BuyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyView.swift; sourceTree = "<group>"; };
 		DD8495642C99A2170083EB81 /* Extensions+SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+SearchViewController.swift"; sourceTree = "<group>"; };
 		DD9D07D82BF29C2700932D2C /* CoffeeInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeInfoVC.swift; sourceTree = "<group>"; };
+		DDA299A72CAAAC2C0046655F /* SQLiteManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SQLiteManager.swift; sourceTree = "<group>"; };
+		DDA299A92CAAAD0A0046655F /* CoffeeOrder.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = CoffeeOrder.db; sourceTree = "<group>"; };
 		DDF558F02C52F6870002294F /* Sora-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sora-Bold.ttf"; sourceTree = "<group>"; };
 		DDF558F12C52F6870002294F /* Sora-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sora-ExtraBold.ttf"; sourceTree = "<group>"; };
 		DDF558F22C52F6870002294F /* Sora-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sora-ExtraLight.ttf"; sourceTree = "<group>"; };
@@ -91,6 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDA299A52CAAA9C40046655F /* SQLite in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -108,6 +114,7 @@
 		DD145FAB2BCB08680063D4C7 = {
 			isa = PBXGroup;
 			children = (
+				DDA299A92CAAAD0A0046655F /* CoffeeOrder.db */,
 				DD6E6D632C8F6C9C0021CBBE /* CoffeeCoreData.xcdatamodeld */,
 				DD145FB62BCB08680063D4C7 /* LuckCoffee */,
 				DD145FB52BCB08680063D4C7 /* Products */,
@@ -125,6 +132,7 @@
 		DD145FB62BCB08680063D4C7 /* LuckCoffee */ = {
 			isa = PBXGroup;
 			children = (
+				DDA299A62CAAA9DA0046655F /* SQLite */,
 				DD6E6D6A2C8F704A0021CBBE /* Core Data */,
 				DD145FD22BCB0D5C0063D4C7 /* ViewControllers */,
 				DD145FCE2BCB0A5F0063D4C7 /* Support */,
@@ -261,6 +269,14 @@
 			path = Data;
 			sourceTree = "<group>";
 		};
+		DDA299A62CAAA9DA0046655F /* SQLite */ = {
+			isa = PBXGroup;
+			children = (
+				DDA299A72CAAAC2C0046655F /* SQLiteManager.swift */,
+			);
+			path = SQLite;
+			sourceTree = "<group>";
+		};
 		DDF558EF2C52F6680002294F /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -329,6 +345,9 @@
 				Base,
 			);
 			mainGroup = DD145FAB2BCB08680063D4C7;
+			packageReferences = (
+				DDA299A32CAAA9C40046655F /* XCRemoteSwiftPackageReference "SQLite.swift" */,
+			);
 			productRefGroup = DD145FB52BCB08680063D4C7 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -351,6 +370,7 @@
 				DDF558FC2C52F6870002294F /* Sora-Light.ttf in Resources */,
 				DDF558F92C52F6870002294F /* Sora-Bold.ttf in Resources */,
 				DDF558FB2C52F6870002294F /* Sora-ExtraLight.ttf in Resources */,
+				DDA299AA2CAAAD0A0046655F /* CoffeeOrder.db in Resources */,
 				DDF558FD2C52F6870002294F /* Sora-Medium.ttf in Resources */,
 				DD145FC42BCB086D0063D4C7 /* Base in Resources */,
 			);
@@ -378,6 +398,7 @@
 				DD78E1262BCB3A4F002234EC /* LoveView.swift in Sources */,
 				DD59687C2BD56802001F9011 /* CoffeeModel.swift in Sources */,
 				DD145FB82BCB08680063D4C7 /* AppDelegate.swift in Sources */,
+				DDA299A82CAAAC2C0046655F /* SQLiteManager.swift in Sources */,
 				DD78E1222BCB3998002234EC /* HomeView.swift in Sources */,
 				DD1E12262C983E00008B6B3E /* SearchView.swift in Sources */,
 				DD6E6D692C8F6FCB0021CBBE /* Coffee+CoreDataProperties.swift in Sources */,
@@ -609,6 +630,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		DDA299A32CAAA9C40046655F /* XCRemoteSwiftPackageReference "SQLite.swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/stephencelis/SQLite.swift.git";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 0.15.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		DDA299A42CAAA9C40046655F /* SQLite */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DDA299A32CAAA9C40046655F /* XCRemoteSwiftPackageReference "SQLite.swift" */;
+			productName = SQLite;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		DD6E6D632C8F6C9C0021CBBE /* CoffeeCoreData.xcdatamodeld */ = {
