@@ -36,7 +36,7 @@
 		DD9D07D92BF29C2700932D2C /* CoffeeInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9D07D82BF29C2700932D2C /* CoffeeInfoVC.swift */; };
 		DDA299A52CAAA9C40046655F /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = DDA299A42CAAA9C40046655F /* SQLite */; };
 		DDA299A82CAAAC2C0046655F /* SQLiteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA299A72CAAAC2C0046655F /* SQLiteManager.swift */; };
-		DDA299AA2CAAAD0A0046655F /* CoffeeOrder.db in Resources */ = {isa = PBXBuildFile; fileRef = DDA299A92CAAAD0A0046655F /* CoffeeOrder.db */; };
+		DDA299AC2CAAC1950046655F /* CoffeeOrder.db in Resources */ = {isa = PBXBuildFile; fileRef = DDA299AB2CAAC1950046655F /* CoffeeOrder.db */; };
 		DDF558F92C52F6870002294F /* Sora-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DDF558F02C52F6870002294F /* Sora-Bold.ttf */; };
 		DDF558FA2C52F6870002294F /* Sora-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DDF558F12C52F6870002294F /* Sora-ExtraBold.ttf */; };
 		DDF558FB2C52F6870002294F /* Sora-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DDF558F22C52F6870002294F /* Sora-ExtraLight.ttf */; };
@@ -79,7 +79,7 @@
 		DD8495642C99A2170083EB81 /* Extensions+SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+SearchViewController.swift"; sourceTree = "<group>"; };
 		DD9D07D82BF29C2700932D2C /* CoffeeInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeInfoVC.swift; sourceTree = "<group>"; };
 		DDA299A72CAAAC2C0046655F /* SQLiteManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SQLiteManager.swift; sourceTree = "<group>"; };
-		DDA299A92CAAAD0A0046655F /* CoffeeOrder.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = CoffeeOrder.db; sourceTree = "<group>"; };
+		DDA299AB2CAAC1950046655F /* CoffeeOrder.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = CoffeeOrder.db; sourceTree = "<group>"; };
 		DDF558F02C52F6870002294F /* Sora-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sora-Bold.ttf"; sourceTree = "<group>"; };
 		DDF558F12C52F6870002294F /* Sora-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sora-ExtraBold.ttf"; sourceTree = "<group>"; };
 		DDF558F22C52F6870002294F /* Sora-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sora-ExtraLight.ttf"; sourceTree = "<group>"; };
@@ -114,8 +114,8 @@
 		DD145FAB2BCB08680063D4C7 = {
 			isa = PBXGroup;
 			children = (
-				DDA299A92CAAAD0A0046655F /* CoffeeOrder.db */,
 				DD6E6D632C8F6C9C0021CBBE /* CoffeeCoreData.xcdatamodeld */,
+				DDA299AB2CAAC1950046655F /* CoffeeOrder.db */,
 				DD145FB62BCB08680063D4C7 /* LuckCoffee */,
 				DD145FB52BCB08680063D4C7 /* Products */,
 			);
@@ -370,7 +370,7 @@
 				DDF558FC2C52F6870002294F /* Sora-Light.ttf in Resources */,
 				DDF558F92C52F6870002294F /* Sora-Bold.ttf in Resources */,
 				DDF558FB2C52F6870002294F /* Sora-ExtraLight.ttf in Resources */,
-				DDA299AA2CAAAD0A0046655F /* CoffeeOrder.db in Resources */,
+				DDA299AC2CAAC1950046655F /* CoffeeOrder.db in Resources */,
 				DDF558FD2C52F6870002294F /* Sora-Medium.ttf in Resources */,
 				DD145FC42BCB086D0063D4C7 /* Base in Resources */,
 			);

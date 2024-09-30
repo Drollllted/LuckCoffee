@@ -13,6 +13,9 @@ final class HomeViewController: UIViewController{
     private var homeView: HomeView!
     var coffeeModel: CoffeeModel!
     let buyViewContoller = BuyViewController()
+    
+    let sqlLiteManager = SQLiteManager.shared
+    
     weak var delegate: BuyViewControllerDelegate?
     
     //MARK: - LifeCycles
@@ -29,6 +32,9 @@ final class HomeViewController: UIViewController{
         
         homeView.coffeeCollectionView.delegate = self
         homeView.coffeeCollectionView.dataSource = self
+        
+        guard let coffee = data.first else {return}
+        sqlLiteManager.addCoffee(coffee: coffee)
         
         homeView.buttonTextField.addTarget(self, action: #selector(goToSearchVC), for: .touchUpInside)
     }
@@ -84,7 +90,6 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
         print("123123")
         guard let coffee = data.first else {return}
         print(coffee)
-        delegate?.addInOrderCoffee(coffee: coffee)
     }
     
 }
