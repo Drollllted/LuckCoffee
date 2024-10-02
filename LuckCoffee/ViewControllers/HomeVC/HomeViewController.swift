@@ -33,9 +33,6 @@ final class HomeViewController: UIViewController{
         homeView.coffeeCollectionView.delegate = self
         homeView.coffeeCollectionView.dataSource = self
         
-        guard let coffee = data.first else {return}
-        sqlLiteManager.addCoffee(coffee: coffee)
-        
         homeView.buttonTextField.addTarget(self, action: #selector(goToSearchVC), for: .touchUpInside)
     }
     

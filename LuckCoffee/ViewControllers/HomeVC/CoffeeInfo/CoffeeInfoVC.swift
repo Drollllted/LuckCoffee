@@ -9,7 +9,6 @@ import UIKit
 
 final class CoffeeInfoVC: UIViewController{
     
-    private var isSelected: Bool = false
     var coffeeInfo: CoffeeInfo!
     var detailModel: CoffeeModel?
     private var coreDataManaged = CoreDataManager.shared
@@ -38,6 +37,17 @@ final class CoffeeInfoVC: UIViewController{
         delegateCollectionViewSize()
     }
     
+    func something() {
+        let defaults = UserDefaults.standard
+        let dict = defaults.dictionaryRepresentation()
+
+        for (key, value) in dict {
+            print("Key: \(key)")
+            print("Value: \(value)")
+            print("---")
+        }
+    }
+    
     //MARK: Setup NavBar
     
     func setupNavBar() {
@@ -47,11 +57,11 @@ final class CoffeeInfoVC: UIViewController{
                                      target: self,
                                      action: #selector(didTapHeart))
         
+        loveButton.image = detailModel!.isLiked ? UIImage(systemName: "heart.fill")?.withTintColor(UIColor(resource: .liked), renderingMode: .alwaysOriginal) : UIImage(systemName: "heart")?.withTintColor(UIColor.black, renderingMode: .alwaysOriginal)
+        
         navigationItem.rightBarButtonItem = loveButton
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font : UIFont(name: "Sora-Bold", size: 18)!]
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "arrow.left")?.withTintColor(.gray, renderingMode: .alwaysOriginal), style: .done, target: self, action: #selector(backButtonAction))
-        
-        guard isSelected == detailModel?.isLiked else {return}
     }
     
     //MARK: - Obj-c Method
@@ -71,8 +81,6 @@ final class CoffeeInfoVC: UIViewController{
         coffeeInfo.collectionViewSize.dataSource = self
     }
     
-    #warning("Отработать нажатие кнопки чтобы кнопка сохраняла свое состояние после нажатия на нее")
-    
     func addOrDelete() {
         guard let nameCoffee = detailModel?.nameCoffee,
               var coffeeModel = detailModel else {
@@ -82,26 +90,21 @@ final class CoffeeInfoVC: UIViewController{
         
         print(nameCoffee)
         do{
-            if isSelected {
+            if coffeeModel.isLiked {
                 coreDataManaged.deleteCoffees(coffeeName: nameCoffee)
-                coffeeModel.isLiked = false
-                clouserIsSelected?(coffeeModel)
+                clouserIsSelected!(coffeeModel)
                 print("Coffee removed from favorites")
             }else{
                 coreDataManaged.addToFavorites(coffee: coffeeModel)
-                coffeeModel.isLiked = true
-                clouserIsSelected?(coffeeModel)
+                clouserIsSelected!(coffeeModel)
                 print("SucceessFully")
             }
-            isSelected.toggle()
+            coffeeModel.isLiked.toggle()
             
-            loveButton.image = isSelected ? UIImage(systemName: "heart.fill")?.withTintColor(UIColor(resource: .liked), renderingMode: .alwaysOriginal) : UIImage(systemName: "heart")?.withTintColor(UIColor.black, renderingMode: .alwaysOriginal)
-            
+            loveButton.image = coffeeModel.isLiked ? UIImage(systemName: "heart.fill")?.withTintColor(UIColor(resource: .liked), renderingMode: .alwaysOriginal) : UIImage(systemName: "heart")?.withTintColor(UIColor.black, renderingMode: .alwaysOriginal)
         }
         
-        NotificationCenter.default.post(name: .getUpdates, object: nil)
-        print("Is selected: \(isSelected)")
+        print("Is selected: \(coffeeModel.isLiked)")
         print("Current favorites count: \(CoreDataManager.shared.coffee.count)")
     }
-    
 }
