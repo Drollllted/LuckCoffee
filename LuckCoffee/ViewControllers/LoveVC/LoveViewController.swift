@@ -12,6 +12,7 @@ final class LoveViewController: UIViewController {
     //MARK: - Properties
     
     private var loveView: LoveView!
+    var coffeeModel: CoffeeModel?
     var favoritesCoffee = CoreDataManager.shared.coffee
     private var coreDataManaged = CoreDataManager.shared
     
@@ -85,45 +86,22 @@ extension LoveViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        alert(at: indexPath)
+        deleteRows(at: indexPath)
     }
     
     //MARK: - function in collectionView button
     
-    private func alert(at indexPath: IndexPath) {
+    private func deleteRows(at indexPath: IndexPath) {
         guard let coffeeName = favoritesCoffee[indexPath.item].nameCoffee else {return}
-        let alertController = UIAlertController(title: "Action", message: "What do you want to do?", preferredStyle: .actionSheet)
-        let deleteItem = UIAlertAction(title: "Delete", style: .destructive) { _ in
-            do {
-                self.coreDataManaged.deleteCoffees(coffeeName: coffeeName)
-                self.favoritesCoffee.remove(at: indexPath.item)
-                self.loveView.loveCollectionView.performBatchUpdates({
-                    self.loveView.loveCollectionView.deleteItems(at: [indexPath])
-                }, completion: nil)
-            }
+        do{
+            self.coreDataManaged.deleteCoffees(coffeeName: coffeeName)
+            self.favoritesCoffee.remove(at: indexPath.item)
+            self.loveView.loveCollectionView.performBatchUpdates({
+                self.loveView.loveCollectionView.deleteItems(at: [indexPath])
+            }, completion: nil)
+            self.coffeeModel?.isLiked = false
         }
-        
-        let infoItem = UIAlertAction(title: "Infomation", style: .default) { _ in
-            let vc = CoffeeInfoVC()
-            let coffeeModel = self.favoritesCoffee[indexPath.item]
-            vc.coffeeInfo.imageCoffeeInfo.image = UIImage(named: coffeeModel.imageCoffee ?? "CoffeeImage")
-            vc.coffeeInfo.namedCoffeeInfo.text = coffeeModel.nameCoffee
-            vc.coffeeInfo.ingredientsCoffee.text = coffeeModel.coffeeIngredients
-            vc.coffeeInfo.ratingLabel.text = String(coffeeModel.ratingCoffee)
-            vc.coffeeInfo.discriptionLabel.text = coffeeModel.coffeeDiscription
-            
-            self.navigationController?.pushViewController(vc, animated: true)
-        }
-        
-        let cancelItem = UIAlertAction(title: "Cancel", style: .cancel)
-        
-        alertController.addAction(infoItem)
-        alertController.addAction(deleteItem)
-        alertController.addAction(cancelItem)
-        
-        self.present(alertController, animated: true)
     }
-    
 }
 extension LoveViewController: UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
